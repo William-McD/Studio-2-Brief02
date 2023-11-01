@@ -33,4 +33,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyAttributes>().health -= 1;
+            Destroy(gameObject);
+        }
+    }
 }
