@@ -10,19 +10,17 @@ public class EnemyChase : MonoBehaviour
     public GameObject currentTarget;
 
     public GameObject[] barricades;
-    [SerializeField] List<float> barricadeDistances = new List<float>();
 
     public float speed;
 
-    private float barricadeDistance;
-    private float playerDistance;
+    public float barricadeDistance;
+    public float playerDistance;
 
     private float nearestDistance = 10000f;
 
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
-        FindClosestBarricade();
 
     }
     // Start is called before the first frame update
@@ -36,16 +34,34 @@ public class EnemyChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DetermineTarget();
         //barricadeDistance = Vector2.Distance(transform.position, barricade.transform.position); // get distance between barricade and enemy 
-        playerDistance = Vector2.Distance(transform.position, player.transform.position); // get distance between player and enemy
+        //playerDistance = Vector2.Distance(transform.position, player.transform.position); // get distance between player and enemy
 
-        Vector2 direction = new Vector2(barricade.transform.position.x - transform.position.x, barricade.transform.position.y - transform.position.y);
-        transform.up = direction;
+            Vector2 direction = new Vector2(currentTarget.transform.position.x - transform.position.x, currentTarget.transform.position.y - transform.position.y);
+            transform.up = direction;
 
-        //Sets the enemy to move towards its current target
-        transform.position = Vector2.MoveTowards(this.transform.position, barricade.transform.position, speed * Time.deltaTime);
-
+            //Sets the enemy to move towards its current target
+            transform.position = Vector2.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
     }
+    void DetermineTarget()
+    {
+        if (barricades.Length == 0)
+        {
+            FindPlayer();
+        }
+        else
+        {
+            FindClosestBarricade();
+        }
+    }
+
+    void FindPlayer()
+    {
+        playerDistance = Vector2.Distance(transform.position, player.transform.position); // get distance between player and enemy
+        currentTarget = player;
+    }
+
 
     public void FindClosestBarricade()
     {
@@ -57,9 +73,10 @@ public class EnemyChase : MonoBehaviour
             {
                 barricade = barricades[i];
                 nearestDistance = barricadeDistance;
+
+                currentTarget = barricade;
             }
         }
-
         /*
         foreach (GameObject r in barricades) 
         {
