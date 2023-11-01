@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 201603195}
   m_Layer: 0
   m_Name: Barricade (4)
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -370,14 +370,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201603192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.4771588, w: -0.87881714}
+  m_LocalRotation: {x: 0, y: -0, z: 0.5, w: -0.8660254}
   m_LocalPosition: {x: -3.7, y: -2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1843634882}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 303}
+  m_Father: {fileID: 1961767105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 300}
 --- !u!50 &201603195
 Rigidbody2D:
   serializedVersion: 4
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 320927513}
   m_Layer: 0
   m_Name: Barricade (1)
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,13 +560,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320927510}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1149461552}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1961767105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &320927513
 Rigidbody2D:
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 397905382}
   m_Layer: 0
   m_Name: Barricade (2)
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,14 +666,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397905379}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.47715867, w: 0.8788172}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
   m_LocalPosition: {x: 3.7, y: -2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1739772031}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 57}
+  m_Father: {fileID: 1961767105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
 --- !u!50 &397905382
 Rigidbody2D:
   serializedVersion: 4
@@ -864,7 +864,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 36, y: 20, z: 1}
+  m_LocalScale: {x: 54, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 910706118}
   m_Layer: 0
   m_Name: Barricade (3)
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,14 +940,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910706115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.47715867, w: 0.8788172}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
   m_LocalPosition: {x: -3.7, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 987604281}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 57}
+  m_Father: {fileID: 1961767105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
 --- !u!50 &910706118
 Rigidbody2D:
   serializedVersion: 4
@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1878008268}
   m_Layer: 0
   m_Name: Barricade
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1488,13 +1488,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878008265}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 514862442}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1961767105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1878008268
 Rigidbody2D:
@@ -1523,6 +1523,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &1961767104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961767105}
+  m_Layer: 0
+  m_Name: BarricadeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961767105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961767104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1878008267}
+  - {fileID: 320927512}
+  - {fileID: 397905381}
+  - {fileID: 910706117}
+  - {fileID: 201603194}
+  - {fileID: 1990568630}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990568628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1573,7 @@ GameObject:
   - component: {fileID: 1990568631}
   m_Layer: 0
   m_Name: Barricade (5)
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1594,14 +1631,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990568628}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: 0.4771588, w: -0.87881714}
+  m_LocalRotation: {x: 0, y: -0, z: 0.5, w: -0.8660254}
   m_LocalPosition: {x: 3.7, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 279152478}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 303}
+  m_Father: {fileID: 1961767105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 300}
 --- !u!50 &1990568631
 Rigidbody2D:
   serializedVersion: 4
@@ -1692,12 +1729,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 108868424}
   - {fileID: 676072154}
+  - {fileID: 1961767105}
   - {fileID: 1366559527334096614}
   - {fileID: 171762160}
-  - {fileID: 1878008267}
-  - {fileID: 320927512}
-  - {fileID: 397905381}
-  - {fileID: 910706117}
-  - {fileID: 201603194}
-  - {fileID: 1990568630}
   - {fileID: 1221739671}
