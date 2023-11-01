@@ -272,7 +272,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 0.49056602, g: 0.33791375, b: 0, a: 0.54509807}
   m_FlipX: 0
@@ -1182,8 +1182,9 @@ MonoBehaviour:
   player: {fileID: 1015170510}
   currentTarget: {fileID: 0}
   barricades: []
-  barricadeDistances: []
-  speed: 1
+  speed: 2
+  barricadeDistance: 0
+  playerDistance: 0
 --- !u!212 &1221739670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1245,7 +1246,7 @@ Transform:
   m_GameObject: {fileID: 1221739668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95, y: 7.69, z: 0}
+  m_LocalPosition: {x: -12.39, y: 5.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
