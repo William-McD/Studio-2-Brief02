@@ -44,8 +44,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerAim(); // calls function to aim player at cursor
-        moveDirection = move.ReadValue<Vector2>();
+        if (alive == true)
+        {
+            PlayerAim(); // calls function to aim player at cursor
+            moveDirection = move.ReadValue<Vector2>();
+        }
 
         FiringCooldown();
     }
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public void FiringCooldown()
     {
-        if (firing == true)
+        if (firing == true && alive == true)
         {
             if (gunCooldown >= 0)
             {
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function
     {
-        if (firing == false)
+        if (firing == false && alive == true)
         {
             firing = true;
             Debug.Log("Fire!");

@@ -196,12 +196,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4fc5f4071ed6845b6ea55c0a7eee77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8389786193769552978}
-  moveSpeed: 5
+  alive: 1
   bullet: {fileID: 3207532154510530491, guid: 6ffc0adf887b1e744bd70dc43cb2dacd, type: 3}
   child: {fileID: 0}
+  firing: 0
   gunCooldown: 0
-  gunCooldownStarter: 3
+  gunCooldownStarter: 0.75
+  rb: {fileID: 8389786193769552978}
+  moveSpeed: 3
 --- !u!114 &6092225891859609435
 MonoBehaviour:
   m_ObjectHideFlags: 0
