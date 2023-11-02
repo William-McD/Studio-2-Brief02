@@ -104,7 +104,7 @@ MonoBehaviour:
   player: {fileID: 0}
   currentTarget: {fileID: 0}
   barricades: []
-  speed: 2
+  speed: 1.5
   barricadeDistance: 0
   playerDistance: 0
 --- !u!114 &9024718385831849222

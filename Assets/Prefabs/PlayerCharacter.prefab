@@ -200,6 +200,8 @@ MonoBehaviour:
   moveSpeed: 5
   bullet: {fileID: 3207532154510530491, guid: 6ffc0adf887b1e744bd70dc43cb2dacd, type: 3}
   child: {fileID: 0}
+  gunCooldown: 0
+  gunCooldownStarter: 3
 --- !u!114 &6092225891859609435
 MonoBehaviour:
   m_ObjectHideFlags: 0

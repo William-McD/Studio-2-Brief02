@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyChase : MonoBehaviour
@@ -15,13 +16,15 @@ public class EnemyChase : MonoBehaviour
 
     public float barricadeDistance;
     public float playerDistance;
+    
+    [SerializeField] bool isNotColliding;
 
     private float nearestDistance = 10000f;
 
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
-
+        isNotColliding = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -37,12 +40,24 @@ public class EnemyChase : MonoBehaviour
         DetermineTarget();
         //barricadeDistance = Vector2.Distance(transform.position, barricade.transform.position); // get distance between barricade and enemy 
         //playerDistance = Vector2.Distance(transform.position, player.transform.position); // get distance between player and enemy
+        Vector2 direction = new Vector2(currentTarget.transform.position.x - transform.position.x, currentTarget.transform.position.y - transform.position.y);
+        transform.up = direction;
 
-            Vector2 direction = new Vector2(currentTarget.transform.position.x - transform.position.x, currentTarget.transform.position.y - transform.position.y);
-            transform.up = direction;
 
+        if (isNotColliding == true)
+        {
             //Sets the enemy to move towards its current target
+
             transform.position = Vector2.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Barricade"))
+        {
+            isNotColliding = false;
+        }
     }
     void DetermineTarget()
     {

@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public GameObject child;
 
+    [SerializeField] bool firing;
+    [SerializeField] float gunCooldown;
+    public float gunCooldownStarter;
+
     public Studio2Brief2Team1 playerControls;   //calls upon Input Manager setting to playerControls in the script
 
 
@@ -21,8 +25,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerControls = new Studio2Brief2Team1 ();
-
         child = transform.GetChild(0).gameObject; //set child as the first child of THIS gameObject (BulletSpawn)
+        gunCooldown = gunCooldownStarter;
+        firing = false;
     }
 
     // Start is called before the first frame update
@@ -35,9 +40,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerAim(); // calls function to aim player at cursor
-
         moveDirection = move.ReadValue<Vector2>();
 
+        FiringCooldown();
     }
     private void OnEnable()
     {
@@ -60,10 +65,34 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); // sets up velocity of player character
     }
 
+    public void FiringCooldown()
+    {
+        if (firing == true)
+        {
+            if (gunCooldown >= 0)
+            {
+                gunCooldown -= Time.deltaTime;
+            }
+            else
+            {
+                firing = false;
+                gunCooldown = gunCooldownStarter;
+            }
+        }
+    }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function
     {
-        Debug.Log("Fire!");
-        Instantiate(bullet, child.transform.position, child.transform.rotation);
+        if (firing == false)
+        {
+            firing = true;
+            Debug.Log("Fire!");
+            Instantiate(bullet, child.transform.position, child.transform.rotation);
+        }
+        else
+        {
+            Debug.Log("Recharging!");
+        }
+
     }
 
     public void PlayerAim()
