@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameEventTracker : MonoBehaviour
 {
     public GameObject gameOverUI;
 
     public float barricadeHealth;
-    public bool playerAlive;
     public bool isDay;
 
+    public bool playerAlive;
+    public bool overheated;
 
     public int spawnCounter;
     public int spawnCounterLimit;
     public GameObject[] ingameEnemies;
 
+    public TMP_Text overheatText;
 
 
     private void Awake()
@@ -29,7 +33,9 @@ public class GameEventTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckOnPlayer();
+
+       CheckOnPlayer();
+       CheckOnOverheat();
        CheckOnEnemySpawner();
     }
     void CheckOnPlayer()
@@ -42,6 +48,25 @@ public class GameEventTracker : MonoBehaviour
             gameOverUI.SetActive(true);
         }
     }
+
+    void CheckOnOverheat()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        overheated = player.GetComponent<PlayerController>().overheated;
+
+        if (overheated == false)
+        {
+            overheatText.color = Color.green;
+            overheatText.text = ("Ready!");
+        }
+        else
+        {
+            overheatText.color = Color.red;
+            overheatText.text = ("Overheated!");
+        }
+
+    }
+
 
     void CheckOnEnemySpawner()
     {

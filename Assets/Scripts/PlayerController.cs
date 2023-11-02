@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,12 +13,13 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public GameObject child;
 
-    [SerializeField] bool overheated;
+    public bool overheated;
 
     public float gunOverheatLimit;
     [SerializeField] float gunHeatUpAmount;
     public float gunOverheatImprovement;
     [SerializeField] float gunCooldown;
+    public Slider cooldownBar;
 
     //Movement Variables
     public Studio2Brief2Team1 playerControls;   //calls upon Input Manager setting to playerControls in the script
@@ -79,6 +81,9 @@ public class PlayerController : MonoBehaviour
 
     public void FiringCooldown()
     {
+        //make the cooldownBar represent the gunCooldown
+        cooldownBar.value = gunCooldown / gunOverheatLimit;
+
         if (overheated == false && gunCooldown > 0)
         {
             gunCooldown -= Time.deltaTime;
@@ -99,6 +104,7 @@ public class PlayerController : MonoBehaviour
                 gunCooldown = 0;
             }
         }
+
     }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function
     {

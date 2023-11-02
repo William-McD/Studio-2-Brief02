@@ -106,7 +106,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   barricades: []
   speed: 0
-  startingSpeed: 1.5
+  startingSpeed: 1.75
   chargeSpeed: 3.1
   barricadeDistance: 0
   playerDistance: 0
