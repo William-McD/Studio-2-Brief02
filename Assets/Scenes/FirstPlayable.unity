@@ -1298,6 +1298,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3545d97ba1a2b4eba49d4fb23322cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barricadeHealth: 0
+  playerAlive: 0
+  gameOverUI: {fileID: 1942389252}
 --- !u!1 &426041809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,14 +3331,6 @@ PrefabInstance:
     - target: {fileID: 225326653181087865, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5148616668373013379, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5148616668373013379, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
-      propertyPath: gunCooldownStarter
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7395488663461059789, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
       propertyPath: m_Name
