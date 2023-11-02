@@ -17,7 +17,7 @@ public class EnemyChase : MonoBehaviour
     public float barricadeDistance;
     public float playerDistance;
     
-    [SerializeField] bool isNotColliding;
+    public bool isNotColliding;
 
     private float nearestDistance = 10000f;
 
