@@ -1298,9 +1298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3545d97ba1a2b4eba49d4fb23322cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 1942389252}
   barricadeHealth: 0
   playerAlive: 0
-  gameOverUI: {fileID: 1942389252}
+  isDay: 0
+  spawnCounter: 0
+  spawnCounterLimit: 0
+  ingameEnemies: []
 --- !u!1 &426041809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,7 +2302,7 @@ GameObject:
   - component: {fileID: 1532438396}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2319,6 +2323,8 @@ MonoBehaviour:
   spawnRadius: 20
   countdownTimerStart: 3
   countdownTimer: 0
+  spawnCounter: 0
+  spawnCounterLimit: 10
 --- !u!4 &1532438397
 Transform:
   m_ObjectHideFlags: 0
@@ -3348,8 +3354,8 @@ SceneRoots:
   - {fileID: 108868424}
   - {fileID: 2120000182}
   - {fileID: 1942389256}
-  - {fileID: 411265017}
   - {fileID: 1303231963}
+  - {fileID: 411265017}
   - {fileID: 1532438397}
   - {fileID: 676072154}
   - {fileID: 171762160}

@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (gunCooldown >= gunOverheatLimit)
         {
             overheated = true;
-            gunCooldown = 10f;
+            gunCooldown = gunOverheatLimit;
         }
 
         if (overheated == true && alive == true)
@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
             if (gunCooldown <= 0)
             {
                 overheated = false;
+                gunCooldown = 0;
             }
         }
     }

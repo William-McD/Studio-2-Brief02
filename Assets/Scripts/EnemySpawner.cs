@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
 
     public float countdownTimerStart;
     [SerializeField] float countdownTimer;
+    public int spawnCounter;
+    public int spawnCounterLimit;
 
 
     private void Awake()
@@ -25,17 +27,17 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (countdownTimer >= 0)
+        if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
         {
             countdownTimer -= Time.deltaTime;
         }
-        else
+        else if (spawnCounter < spawnCounterLimit)
         {
             SpawnEnemyOnEdge();
             countdownTimer = countdownTimerStart;
+            spawnCounter += 1;
         }
     }
-
 
     private void SpawnEnemyOnEdge()
     {

@@ -201,7 +201,7 @@ MonoBehaviour:
   child: {fileID: 0}
   overheated: 0
   gunOverheatLimit: 10
-  gunHeatUpAmount: 1.5
+  gunHeatUpAmount: 1.25
   gunOverheatImprovement: 10
   gunCooldown: 0
   rb: {fileID: 8389786193769552978}

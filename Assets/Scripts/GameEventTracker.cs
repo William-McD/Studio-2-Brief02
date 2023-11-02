@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GameEventTracker : MonoBehaviour
 {
+    public GameObject gameOverUI;
+
     public float barricadeHealth;
     public bool playerAlive;
+    public bool isDay;
 
-    public GameObject gameOverUI;
+
+    public int spawnCounter;
+    public int spawnCounterLimit;
+    public GameObject[] ingameEnemies;
+
+
 
     private void Awake()
     {
@@ -21,6 +29,11 @@ public class GameEventTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckOnPlayer();
+       CheckOnEnemySpawner();
+    }
+    void CheckOnPlayer()
+    {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerAlive = player.GetComponent<PlayerController>().alive;
 
@@ -28,5 +41,23 @@ public class GameEventTracker : MonoBehaviour
         {
             gameOverUI.SetActive(true);
         }
+    }
+
+    void CheckOnEnemySpawner()
+    {
+        GameObject enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner");
+        spawnCounter = enemySpawner.GetComponent<EnemySpawner>().spawnCounter;
+        spawnCounterLimit = enemySpawner.GetComponent<EnemySpawner>().spawnCounterLimit;
+
+        if (spawnCounter == spawnCounterLimit)
+        {
+            ingameEnemies = (GameObject.FindGameObjectsWithTag("Enemy"));
+            if (ingameEnemies.Length == 0) 
+            {
+                Debug.Log("YOU WIN (GAME TRANSITION HERE)");
+                isDay = true;
+            }
+        }
+
     }
 }
