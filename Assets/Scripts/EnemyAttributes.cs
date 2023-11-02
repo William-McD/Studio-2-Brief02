@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Xml.Serialization;
 using UnityEngine;
 
@@ -63,6 +64,13 @@ public class EnemyAttributes : MonoBehaviour
                 barricadeManager.GetComponent<BarricadeManager>().barricadeHealth -= attackDamage;
                 attackTimer = attackTimerStart;
             }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D player)
+    {
+        if (player.CompareTag("Player") && barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 0)
+        {
+            player.GetComponent<PlayerController>().alive = false;
         }
     }
 }

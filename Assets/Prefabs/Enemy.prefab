@@ -101,10 +101,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barricade: {fileID: 0}
+  barricadeManager: {fileID: 0}
   player: {fileID: 0}
   currentTarget: {fileID: 0}
   barricades: []
-  speed: 1.5
+  speed: 0
+  startingSpeed: 1.5
+  chargeSpeed: 3.1
   barricadeDistance: 0
   playerDistance: 0
   isNotColliding: 0

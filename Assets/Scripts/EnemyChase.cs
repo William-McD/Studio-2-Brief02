@@ -7,24 +7,31 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     public GameObject barricade;
+    public GameObject barricadeManager;
     public GameObject player;
     public GameObject currentTarget;
 
     public GameObject[] barricades;
 
-    public float speed;
+    [SerializeField] float speed; //how fast is the enemy
+    public float startingSpeed;
+    public float chargeSpeed; //for when the barricade is destroyed
 
-    public float barricadeDistance;
-    public float playerDistance;
+
+    public float barricadeDistance; // how fare is the barricade
+    public float playerDistance; // how far is the player
     
-    public bool isNotColliding;
+    public bool isNotColliding; //whether the enemy is colliding with the barricade
 
     private float nearestDistance = 10000f;
 
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
+        barricadeManager = GameObject.FindGameObjectWithTag("BarricadeManager");
+        player = GameObject.FindGameObjectWithTag("Player");
         isNotColliding = true;
+        speed = startingSpeed;
     }
     // Start is called before the first frame update
     void Start()
@@ -38,6 +45,7 @@ public class EnemyChase : MonoBehaviour
     void Update()
     {
         DetermineTarget();
+        DetermineSpeed();
         //barricadeDistance = Vector2.Distance(transform.position, barricade.transform.position); // get distance between barricade and enemy 
         //playerDistance = Vector2.Distance(transform.position, player.transform.position); // get distance between player and enemy
         Vector2 direction = new Vector2(currentTarget.transform.position.x - transform.position.x, currentTarget.transform.position.y - transform.position.y);
@@ -59,9 +67,28 @@ public class EnemyChase : MonoBehaviour
             isNotColliding = false;
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Barricade"))
+        {
+            isNotColliding = true;
+        }
+    }
+
+    void DetermineSpeed()
+    {
+        if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 0)
+        {
+            speed = chargeSpeed;
+        }
+        else
+        {
+            speed = startingSpeed;
+        }
+    }
     void DetermineTarget()
     {
-        if (barricades.Length == 0)
+        if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 0 )
         {
             FindPlayer();
         }
@@ -92,7 +119,7 @@ public class EnemyChase : MonoBehaviour
                 currentTarget = barricade;
             }
         }
-        /*
+        /* UTTER NONSENSE (ATTEMPT AT USING A DICTIONARY, MAY TRY TO USE FOR SPAWN LIST! KEEP UNTIL UNEEDED)
         foreach (GameObject r in barricades) 
         {
             float distance = Vector2.Distance(transform.position, r.transform.position);

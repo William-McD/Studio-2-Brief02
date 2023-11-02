@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb; //variable for rigidbody
-    public float moveSpeed = 5f; // contains the set speed of the player characters movement
+    //Healt Variables
+    public bool alive;
 
+    //Shooting Variables
     public GameObject bullet;
     public GameObject child;
 
@@ -15,8 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gunCooldown;
     public float gunCooldownStarter;
 
+    //Movement Variables
     public Studio2Brief2Team1 playerControls;   //calls upon Input Manager setting to playerControls in the script
 
+    public Rigidbody2D rb; //variable for rigidbody
+    public float moveSpeed = 5f; // contains the set speed of the player characters movement
 
     Vector2 moveDirection = Vector2.zero;
     private InputAction move; // sets up InputAction for moving with move
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
         child = transform.GetChild(0).gameObject; //set child as the first child of THIS gameObject (BulletSpawn)
         gunCooldown = gunCooldownStarter;
         firing = false;
+        alive = true;
     }
 
     // Start is called before the first frame update
