@@ -12,9 +12,12 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public GameObject child;
 
-    [SerializeField] bool firing;
+    [SerializeField] bool overheated;
+
+    public float gunOverheatLimit;
+    [SerializeField] float gunHeatUpAmount;
+    public float gunOverheatImprovement;
     [SerializeField] float gunCooldown;
-    public float gunCooldownStarter;
 
     //Movement Variables
     public Studio2Brief2Team1 playerControls;   //calls upon Input Manager setting to playerControls in the script
@@ -28,29 +31,19 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        alive = true;
         playerControls = new Studio2Brief2Team1 ();
         child = transform.GetChild(0).gameObject; //set child as the first child of THIS gameObject (BulletSpawn)
-        gunCooldown = gunCooldownStarter;
-        firing = false;
-        alive = true;
+
+
+        overheated = false;
+        gunOverheatLimit = gunOverheatImprovement;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (alive == true)
-        {
-            PlayerAim(); // calls function to aim player at cursor
-            moveDirection = move.ReadValue<Vector2>();
-        }
-
-        FiringCooldown();
     }
     private void OnEnable()
     {
@@ -68,38 +61,59 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (alive == true)
+        {
+            PlayerAim(); // calls function to aim player at cursor
+            moveDirection = move.ReadValue<Vector2>();
+        }
+    }
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); // sets up velocity of player character
+        FiringCooldown();
+
     }
 
     public void FiringCooldown()
     {
-        if (firing == true && alive == true)
+        if (overheated == false && gunCooldown > 0)
         {
-            if (gunCooldown >= 0)
+            gunCooldown -= Time.deltaTime;
+        }
+
+        if (gunCooldown >= gunOverheatLimit)
+        {
+            overheated = true;
+            gunCooldown = 10f;
+        }
+
+        if (overheated == true && alive == true)
+        {
+            gunCooldown -= Time.deltaTime;
+            if (gunCooldown <= 0)
             {
-                gunCooldown -= Time.deltaTime;
-            }
-            else
-            {
-                firing = false;
-                gunCooldown = gunCooldownStarter;
+                overheated = false;
             }
         }
     }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function
     {
-        if (firing == false && alive == true)
+        if (overheated == false && alive == true)
         {
-            firing = true;
+
             Debug.Log("Fire!");
             Instantiate(bullet, child.transform.position, child.transform.rotation);
+            gunCooldown += gunHeatUpAmount;
         }
         else
         {
             Debug.Log("Recharging!");
         }
+            
+       
 
     }
 
