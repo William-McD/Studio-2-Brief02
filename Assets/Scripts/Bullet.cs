@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float deathTimerStart;
     public float speed;
 
     private void Awake()
     {
-        deathTimerStart = 5f;
     }
     // Start is called before the first frame update
     void Start()
@@ -27,8 +25,7 @@ public class Bullet : MonoBehaviour
 
     public void DeathTimer() // MAY CHANGE FROM DEATHTIMER to a When at X/Y Value destroy self
     {
-        deathTimerStart -= Time.deltaTime;
-        if (deathTimerStart < 0 )
+        if (transform.position.x < -16 || transform.position.x > 16 || transform.position.y < -16 || transform.position.y > 16)
         {
             Destroy(gameObject);
         }
