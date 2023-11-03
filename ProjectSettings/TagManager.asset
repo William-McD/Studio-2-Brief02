@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - BarricadeManager
   - EnemySpawner
+  - Manager
   layers:
   - Default
   - TransparentFX

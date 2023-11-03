@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-
     public float spawnRadius;
 
     public float countdownTimerStart;
@@ -13,10 +12,18 @@ public class EnemySpawner : MonoBehaviour
     public int spawnCounter;
     public int spawnCounterLimit;
 
+    GameObject manager;
+    int currentNight;
+    bool isDay;
 
     private void Awake()
     {
         countdownTimer = countdownTimerStart;
+
+        manager = GameObject.FindGameObjectWithTag("Manager");
+        currentNight = manager.GetComponent<GameEventTracker>().nightCounter;
+        isDay = manager.GetComponent<GameEventTracker>().isDay;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -26,6 +33,36 @@ public class EnemySpawner : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
+    {
+        if (currentNight == 1 && isDay == false)
+        {
+            spawnCounterLimit = 10;
+            NightOneSpawn();
+
+        }
+
+        if (currentNight == 2 && isDay == false)
+        {
+            spawnCounterLimit = 20;
+            NightTwoSpawn();
+        }
+    }
+
+    void NightOneSpawn()
+    {
+        if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
+        {
+            countdownTimer -= Time.deltaTime * 1.2f;
+        }
+        else if (spawnCounter < spawnCounterLimit)
+        {
+            SpawnEnemyOnEdge();
+            countdownTimer = countdownTimerStart;
+            spawnCounter += 1;
+        }
+    }
+
+    void NightTwoSpawn()
     {
         if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
         {
@@ -38,6 +75,7 @@ public class EnemySpawner : MonoBehaviour
             spawnCounter += 1;
         }
     }
+
 
     private void SpawnEnemyOnEdge()
     {

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Diagnostics.CodeAnalysis;
 
 public class GameEventTracker : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject dayTimeUI;
+    public GameObject player;
+    public GameObject enemySpawner;
 
     public float barricadeHealth;
     public bool isDay;
@@ -20,9 +24,14 @@ public class GameEventTracker : MonoBehaviour
 
     public TMP_Text overheatText;
 
+    public int nightCounter;
+    public int nightCounterStart;
+    public TMP_Text nightCounterText;
+
 
     private void Awake()
     {
+        nightCounter = nightCounterStart;
     }
     // Start is called before the first frame update
     void Start()
@@ -33,14 +42,14 @@ public class GameEventTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       CheckOnPlayer();
-       CheckOnOverheat();
-       CheckOnEnemySpawner();
+        CheckOnPlayer();
+        CheckOnOverheat();
+        CheckOnEnemySpawner();
+        CheckOnNightCounter();
+        ActivateDayTimeScreen();
     }
     void CheckOnPlayer()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerAlive = player.GetComponent<PlayerController>().alive;
 
         if (playerAlive == false)
@@ -51,7 +60,6 @@ public class GameEventTracker : MonoBehaviour
 
     void CheckOnOverheat()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         overheated = player.GetComponent<PlayerController>().overheated;
 
         if (overheated == false)
@@ -67,21 +75,43 @@ public class GameEventTracker : MonoBehaviour
 
     }
 
-
     void CheckOnEnemySpawner()
     {
-        GameObject enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner");
         spawnCounter = enemySpawner.GetComponent<EnemySpawner>().spawnCounter;
         spawnCounterLimit = enemySpawner.GetComponent<EnemySpawner>().spawnCounterLimit;
 
         if (spawnCounter == spawnCounterLimit)
         {
             ingameEnemies = (GameObject.FindGameObjectsWithTag("Enemy"));
-            if (ingameEnemies.Length == 0) 
+            if (ingameEnemies.Length == 0 && isDay == false) 
             {
                 Debug.Log("YOU WIN (GAME TRANSITION HERE)");
+                nightCounter += 1;
+                enemySpawner.SetActive(false);
+                //spawnCounter = enemySpawner.GetComponent<EnemySpawner>().spawnCounter;
+
                 isDay = true;
             }
+        }
+
+    }
+
+    void CheckOnNightCounter()
+    {
+        nightCounterText.text = ("Night: " + nightCounter);
+
+
+    }
+
+    void ActivateDayTimeScreen()
+    {
+        if (isDay == false)
+        {
+            dayTimeUI.SetActive(false);
+        }
+        else if(isDay == true) 
+        {
+            dayTimeUI.SetActive(true);
         }
 
     }

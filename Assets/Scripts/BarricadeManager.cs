@@ -8,16 +8,19 @@ public class BarricadeManager : MonoBehaviour
 {
     public int barricadeHealthStart;
     public int barricadeHealth;
-
     public TMP_Text barricadeText;
-
     GameObject[] barricades;
+
+    private void Awake()
+    {
+        barricadeHealth = barricadeHealthStart;
+        barricades = GameObject.FindGameObjectsWithTag("Barricade");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        barricadeHealth = barricadeHealthStart;
-        barricades = GameObject.FindGameObjectsWithTag("Barricade");
+       
     }
 
     // Update is called once per frame
