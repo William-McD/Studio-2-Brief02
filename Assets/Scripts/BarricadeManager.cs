@@ -35,8 +35,7 @@ public class BarricadeManager : MonoBehaviour
             foreach (GameObject b in barricades)
             {
                 b.SetActive(true);
-            }
-            
+            }    
         }
     }
     void DestroyBarricade()

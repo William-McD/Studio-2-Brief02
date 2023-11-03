@@ -91,6 +91,8 @@ public class GameEventTracker : MonoBehaviour
                 player.SetActive(false);
                 //spawnCounter = enemySpawner.GetComponent<EnemySpawner>().spawnCounter;
 
+                GetComponent<DayTimeManager>().SetUpDaytimeValues();
+
                 isDay = true;
             }
         }

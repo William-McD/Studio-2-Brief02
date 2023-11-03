@@ -9,6 +9,7 @@ TagManager:
   - BarricadeManager
   - EnemySpawner
   - Manager
+  - Daytime
   layers:
   - Default
   - TransparentFX

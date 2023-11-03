@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public float gunOverheatLimit;
     [SerializeField] float gunHeatUpAmount;
-    [SerializeField] float gunCooldown;
+    public float gunCooldown;
     public Slider cooldownBar;
 
     //Movement Variables
