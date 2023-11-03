@@ -6,14 +6,12 @@ using UnityEngine;
 
 public class BarricadeManager : MonoBehaviour
 {
-    public int barricadeHealthStart;
     public int barricadeHealth;
     public TMP_Text barricadeText;
     GameObject[] barricades;
 
     private void Awake()
     {
-        barricadeHealth = barricadeHealthStart;
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
     }
 

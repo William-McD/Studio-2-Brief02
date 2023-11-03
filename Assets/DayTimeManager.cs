@@ -23,8 +23,8 @@ public class DayTimeManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        startingBarricadeHealth = barricadeManager.GetComponent<BarricadeManager>().barricadeHealth;
-        dayBarricadeRepair = startingBarricadeHealth;
+        //startingBarricadeHealth = barricadeManager.GetComponent<BarricadeManager>().barricadeHealth;
+       // dayBarricadeRepair = startingBarricadeHealth;
 
         startingGunOverheatLimit = playerController.GetComponent<PlayerController>().gunOverheatLimit;
         dayGunOverheatImprovement = startingGunOverheatLimit;
@@ -38,7 +38,10 @@ public class DayTimeManager : MonoBehaviour
     }
     public void BarricadeRepairPlus()
     {
-        dayBarricadeRepair += 5;
+        if (dayBarricadeRepair < (95))
+        {
+            dayBarricadeRepair += 5;
+        }
     }
     public void BarricadeRepairMinus()
     {
