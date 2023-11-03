@@ -106,7 +106,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   barricades: []
   speed: 0
-  startingSpeed: 1.75
+  startingSpeed: 2.1
   chargeSpeed: 3.1
   barricadeDistance: 0
   playerDistance: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   startingHealth: 3
   barricadeManager: {fileID: 0}
   attackTimer: 0
-  attackTimerStart: 4
+  attackTimerStart: 2
   attackDamage: 3
 --- !u!61 &490947487211787626
 BoxCollider2D:

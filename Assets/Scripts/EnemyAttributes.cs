@@ -55,6 +55,7 @@ public class EnemyAttributes : MonoBehaviour
 
         if (atBarricade == true) 
         {
+
             if (attackTimer > 0)
             {
                 attackTimer -= Time.deltaTime;

@@ -25,8 +25,9 @@ public class DayTimeManager : MonoBehaviour
     public TMP_Text overheatImprovementText;
     float dayGunOverheatImprovement;
 
-
-
+    // FIRST PLAYABLE ONLY----------------
+    public GameObject nextDayButton;
+    //------------------------------------
 
 
     // Start is called before the first frame update
@@ -50,7 +51,13 @@ public class DayTimeManager : MonoBehaviour
         barricadeRepairText.text = (dayBarricadeRepair + "%");
         overheatImprovementText.text = (dayGunOverheatImprovement + "0%");
 
-        
+
+        // FIRST PLAYABLE ONLY----------------
+        if (day == 4)
+        {
+            nextDayButton.SetActive(false);
+        }
+        //------------------------------------
     }
     public void BarricadeRepairPlus()
     {
@@ -60,7 +67,7 @@ public class DayTimeManager : MonoBehaviour
             energyPoints--;
         }
         //Basically stops overspill of repair
-        else if (dayBarricadeRepair > 95 && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
+        else if (dayBarricadeRepair >= 96 && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
         {
             trueValue = dayBarricadeRepair += 5;
             dayBarricadeRepair = 100;
@@ -108,11 +115,18 @@ public class DayTimeManager : MonoBehaviour
     public void StartNextNight()
     {
         dayTimeUI.SetActive(false);
+
+        barricadeManager.GetComponent<BarricadeManager>().barricadeHealth = dayBarricadeRepair;
+
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;
+        enemySpawner.GetComponent<EnemySpawner>().currentNight++;
+        enemySpawner.GetComponent<EnemySpawner>().CountdownSwitch();
+
         playerController.SetActive(true);
         playerController.GetComponent<PlayerController>().gunOverheatLimit = dayGunOverheatImprovement;
         playerController.GetComponent<PlayerController>().gunCooldown = 0f;
+
         GetComponent<GameEventTracker>().isDay = false;
     }
 }

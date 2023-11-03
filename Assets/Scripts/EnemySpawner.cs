@@ -7,24 +7,32 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
     public float spawnRadius;
 
-    public float countdownTimerStart;
+
     [SerializeField] float countdownTimer;
+    public float countdownTimerStart;
+
+    public float countdownTimerDayOne;
+    public float countdownTimerDayTwo;
+    public float countdownTimerDayThree;
+    public float countdownTimerDayFour;
+
+
     public int spawnCounter;
     public int spawnCounterLimit;
 
     GameObject manager;
-    int currentNight;
+    public int currentNight;
     bool isDay;
 
     private void Awake()
     {
-        countdownTimer = countdownTimerStart;
-
         manager = GameObject.FindGameObjectWithTag("Manager");
         currentNight = manager.GetComponent<GameEventTracker>().nightCounter;
         isDay = manager.GetComponent<GameEventTracker>().isDay;
 
+        countdownTimer = countdownTimerStart;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,35 +42,56 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currentNight == 1 && isDay == false)
+        if (currentNight == 1 && isDay == false) // NIGHT ONE
         {
             spawnCounterLimit = 10;
-            NightOneSpawn();
-
+            SpawnTimer();
         }
 
-        if (currentNight == 2 && isDay == false)
+        if (currentNight == 2 && isDay == false) // NIGHT TWO
+        {
+            spawnCounterLimit = 15;
+            SpawnTimer();
+        }
+
+        if (currentNight == 3 && isDay == false) // NIGHT THREE
+        {
+            spawnCounterLimit = 15;
+            SpawnTimer();
+        }
+
+        if (currentNight == 4 && isDay == false) // NIGHT FOUR
         {
             spawnCounterLimit = 20;
-            NightTwoSpawn();
+            SpawnTimer();
         }
+
     }
 
-    void NightOneSpawn()
+    public void CountdownSwitch() 
     {
-        if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
+        if (currentNight == 1) // NIGHT ONE
         {
-            countdownTimer -= Time.deltaTime * 1.2f;
+            countdownTimerStart = countdownTimerDayOne; 
         }
-        else if (spawnCounter < spawnCounterLimit)
+
+        if (currentNight == 2) // NIGHT TWO
         {
-            SpawnEnemyOnEdge();
-            countdownTimer = countdownTimerStart;
-            spawnCounter += 1;
+            countdownTimerStart = countdownTimerDayTwo;
+        }
+
+        if (currentNight == 3) // NIGHT THREE
+        {
+            countdownTimerStart = countdownTimerDayThree;
+        }
+
+        if (currentNight == 4) // NIGHT FOUR
+        {
+            countdownTimerStart = countdownTimerDayFour;
         }
     }
 
-    void NightTwoSpawn()
+    void SpawnTimer()
     {
         if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
         {
