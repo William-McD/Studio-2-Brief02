@@ -126,6 +126,7 @@ public class DayTimeManager : MonoBehaviour
         playerController.SetActive(true);
         playerController.GetComponent<PlayerController>().gunOverheatLimit = dayGunOverheatImprovement;
         playerController.GetComponent<PlayerController>().gunCooldown = 0f;
+        playerController.GetComponent<PlayerController>().ResetPosition();
 
         GetComponent<GameEventTracker>().isDay = false;
     }

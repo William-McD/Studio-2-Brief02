@@ -77,6 +77,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void ResetPosition()
+    {
+        transform.position = Vector2.zero;
+    }
     public void FiringCooldown()
     {
         //make the cooldownBar represent the gunCooldown
