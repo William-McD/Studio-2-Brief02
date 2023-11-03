@@ -127,7 +127,7 @@ MonoBehaviour:
   startingHealth: 3
   barricadeManager: {fileID: 0}
   attackTimer: 0
-  attackTimerStart: 5
+  attackTimerStart: 4
   attackDamage: 3
 --- !u!61 &490947487211787626
 BoxCollider2D:

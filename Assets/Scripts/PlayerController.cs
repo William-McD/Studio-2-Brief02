@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
     public float gunOverheatLimit;
     [SerializeField] float gunHeatUpAmount;
-    public float gunOverheatImprovement;
     [SerializeField] float gunCooldown;
     public Slider cooldownBar;
 
@@ -39,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
 
         overheated = false;
-        gunOverheatLimit = gunOverheatImprovement;
     }
 
     // Start is called before the first frame update

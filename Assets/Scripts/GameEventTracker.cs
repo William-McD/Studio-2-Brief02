@@ -88,6 +88,7 @@ public class GameEventTracker : MonoBehaviour
                 Debug.Log("YOU WIN (GAME TRANSITION HERE)");
                 nightCounter += 1;
                 enemySpawner.SetActive(false);
+                player.SetActive(false);
                 //spawnCounter = enemySpawner.GetComponent<EnemySpawner>().spawnCounter;
 
                 isDay = true;
