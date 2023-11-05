@@ -17,13 +17,13 @@ public class SceneLoader : MonoBehaviour
     public void openScreen()
     {
         tutScreen.SetActive(true);
-        buttons.SetActive(false);
+       // buttons.SetActive(false);
     }
 
     public void closeScreen()
     {
         tutScreen.SetActive(false);
-        buttons.SetActive(true);
+     //   buttons.SetActive(true);
     }
 
 
