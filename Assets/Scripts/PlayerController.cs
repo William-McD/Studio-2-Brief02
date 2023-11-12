@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection = Vector2.zero;
     private InputAction move; // sets up InputAction for moving with move
     private InputAction fire; // sets up InputACtion for firing with fire
+    private InputAction cooldown; // sets up InputAction for coolingdown with cooldown
 
     private void Awake()
     {
@@ -53,12 +54,17 @@ public class PlayerController : MonoBehaviour
         fire = playerControls.Player.Fire; // assigns fire to playerControls Input Fire (Left Mouseclick)
         fire.Enable(); // enables fire action
         fire.performed += Fire; //the Fire action equals the Fire Function
+
+        cooldown = playerControls.Player.Cooldown; // assomgs cpp;dpwm to the playerControls Input Cooldown (Spacebar)
+        cooldown.Enable();
+        cooldown.performed += ActiveCooldown;
     }
     private void OnDisable()
     {
         //when not using Fire or Move, disable them
         move.Disable();
         fire.Disable();
+        cooldown.Disable();
     }
 
     // Update is called once per frame
@@ -105,6 +111,17 @@ public class PlayerController : MonoBehaviour
                 overheated = false;
                 gunCooldown = 0;
             }
+
+
+        }
+
+    }
+
+    public void ActiveCooldown(InputAction.CallbackContext context)
+    {
+        if (overheated == true && alive == true && (gunCooldown > 0))
+        {
+            gunCooldown -= .5f;
         }
 
     }
@@ -122,8 +139,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Recharging!");
         }
             
-       
-
     }
 
     public void PlayerAim()
