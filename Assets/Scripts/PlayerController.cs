@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float gunCooldown;
     public Slider cooldownBar;
 
+
     //Movement Variables
     public Studio2Brief2Team1 playerControls;   //calls upon Input Manager setting to playerControls in the script
 
@@ -31,14 +32,25 @@ public class PlayerController : MonoBehaviour
     private InputAction fire; // sets up InputACtion for firing with fire
     private InputAction cooldown; // sets up InputAction for coolingdown with cooldown
 
+
+
+
+    //connors stuff
+    public GameObject playerAnimation;
+    public bool isShooting;
+    public float shootingAnimationTimer;
+    //connors stuff
+
     private void Awake()
     {
         alive = true;
         playerControls = new Studio2Brief2Team1 ();
         child = transform.GetChild(0).gameObject; //set child as the first child of THIS gameObject (BulletSpawn)
 
-
-        overheated = false;
+        //connors work
+        overheated = false;//check later
+        isShooting = false;
+        //connors work
     }
 
     // Start is called before the first frame update
@@ -81,6 +93,13 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); // sets up velocity of player character
         FiringCooldown();
 
+
+        //connors stuff
+        IsShooting();
+
+        PlayerAnimationOverheating();
+        PlayerAnimationShooting();
+        //connors stuff
     }
 
     public void ResetPosition()
@@ -129,16 +148,26 @@ public class PlayerController : MonoBehaviour
     {
         if (overheated == false && alive == true)
         {
-
+            //connors stuff
+            isShooting = true;
+            //connors stuff
             Debug.Log("Fire!");
             Instantiate(bullet, child.transform.position, child.transform.rotation);
             gunCooldown += gunHeatUpAmount;
+
+
+
+
         }
         else
         {
             Debug.Log("Recharging!");
+
+            //connors stuff
+            isShooting = false;
+            //connors stuff
         }
-            
+
     }
 
     public void PlayerAim()
@@ -149,4 +178,37 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = new Vector2 (mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         transform.up = direction;
     }
+
+
+    //connors work
+
+    public void PlayerAnimationOverheating()
+    {
+        playerAnimation.GetComponent<Animator>().SetBool("isOverheating", overheated);
+    }
+
+    public void PlayerAnimationShooting()
+    {
+        playerAnimation.GetComponent<Animator>().SetBool("isShooting", isShooting);
+    }
+
+    public void IsShooting()
+    {
+        if (isShooting == false)
+        {
+            shootingAnimationTimer = .3f;
+        }
+
+        if (isShooting == true)
+        {
+            shootingAnimationTimer -= Time.deltaTime;
+            if (shootingAnimationTimer <= 0f) 
+            {
+                shootingAnimationTimer = .3f;
+                isShooting = false;
+
+            }
+        }
+    }
+    //connors work
 }
