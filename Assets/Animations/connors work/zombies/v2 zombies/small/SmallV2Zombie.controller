@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b5622d02c8e1d4f45a50f8eabf4e002a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 16541f2e1ceb291449ad64bdff446ae6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -86,7 +86,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: zombie attacking
-  m_Speed: 0.3
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1415431872470526931}
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e5bc613290a4fc64fadeb3bc78d7009d, type: 2}
+  m_Motion: {fileID: 7400000, guid: a5eb4fb3742d91544a90ebfd1163402a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -210,7 +210,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f24a9369b277a214cb3644df313979e3, type: 2}
+  m_Motion: {fileID: 7400000, guid: f6e478191134a104aa3cbca545a8c326, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MidV1ZombieAttack
+  m_Name: SmallV2ZombieAttack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -698104065, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
+      value: {fileID: -1062020729, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
     - time: 0.083333336
-      value: {fileID: -1721299327, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
+      value: {fileID: -860578402, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -698104065, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
-    - {fileID: -1721299327, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
+    - {fileID: -1062020729, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
+    - {fileID: -860578402, guid: 78a86ce467bb77849b7addde88900ca6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
