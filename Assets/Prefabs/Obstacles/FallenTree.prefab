@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3627451306822239445}
   m_Layer: 0
   m_Name: Obstacle05
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,10 +151,45 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47b0816faef677545ba0d01c96ebb949, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7809118818623936734}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 47b0816faef677545ba0d01c96ebb949, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4005500227264753382}
   m_SourcePrefab: {fileID: 100100000, guid: 47b0816faef677545ba0d01c96ebb949, type: 3}
 --- !u!4 &67238905933214945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 47b0816faef677545ba0d01c96ebb949, type: 3}
   m_PrefabInstance: {fileID: 532647484925760266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &839131611202874971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 47b0816faef677545ba0d01c96ebb949, type: 3}
+  m_PrefabInstance: {fileID: 532647484925760266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &-4005500227264753382
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839131611202874971}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

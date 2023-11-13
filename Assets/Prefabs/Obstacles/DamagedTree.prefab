@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3403621148462668615}
+  - component: {fileID: -9077041259686183007}
   m_Layer: 0
   m_Name: DamagedTree
   m_TagString: Obstacle
@@ -33,6 +34,33 @@ Transform:
   - {fileID: 5544714652567414180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 326.012, y: -90, z: 90.926}
+--- !u!50 &-9077041259686183007
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627788579512746493}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4197268389477872140
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +73,7 @@ GameObject:
   - component: {fileID: 2908705563067684569}
   m_Layer: 0
   m_Name: Obstacle03
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

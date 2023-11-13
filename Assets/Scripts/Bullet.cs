@@ -38,5 +38,13 @@ public class Bullet : MonoBehaviour
             other.GetComponent<EnemyAttributes>().health -= 1;
             Destroy(gameObject);
         }
+
+        //Nathan Tree Collider
+        else if (other.CompareTag("Obstacle"))
+        {
+            Debug.Log("COLLIDING WITH TREES");
+            Destroy(gameObject);
+        }
+        //Nathan Tree Colloider
     }
 }
