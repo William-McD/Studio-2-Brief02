@@ -16,7 +16,9 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] float speed; //how fast is the enemy
     public float startingSpeed;
     public float chargeSpeed; //for when the barricade is destroyed
-
+    //Nathan
+    public float obstacleSpeed;
+    //Nathan
 
     public float barricadeDistance; // how fare is the barricade
     public float playerDistance; // how far is the player
@@ -68,6 +70,13 @@ public class EnemyChase : MonoBehaviour
         {
             isNotColliding = false;
         }
+        //Nathan
+        if (other.CompareTag("Obstacle"))
+        {
+            speed = obstacleSpeed;
+            Debug.Log("IS SLOWED BY OBSTACLE");
+        }
+        //Nathan
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -75,6 +84,12 @@ public class EnemyChase : MonoBehaviour
         {
             isNotColliding = true;
         }
+        //Nathan
+        if (other.CompareTag("Obstacle"))
+        {
+            speed = startingSpeed;
+        }
+        //Nathan
     }
 
     void DetermineSpeed()
@@ -83,10 +98,7 @@ public class EnemyChase : MonoBehaviour
         {
             speed = chargeSpeed;
         }
-        else
-        {
-            speed = startingSpeed;
-        }
+
     }
     void DetermineTarget()
     {

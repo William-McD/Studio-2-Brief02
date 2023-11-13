@@ -215,6 +215,7 @@ MonoBehaviour:
   speed: 0
   startingSpeed: 2.1
   chargeSpeed: 3.1
+  obstacleSpeed: 1
   barricadeDistance: 0
   playerDistance: 0
   isNotColliding: 0
