@@ -17,6 +17,14 @@ public class EnemyAttributes : MonoBehaviour
 
     public int attackDamage;
 
+    //connors stuff
+    public GameObject enemyAnimation;
+    public bool isdead;
+    public float deathTimer;
+    public bool isattacking;
+    //connors stuff
+
+
     private void Awake()
     {
         health = startingHealth;
@@ -27,20 +35,35 @@ public class EnemyAttributes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health == 0)
+        if (health > 0)
         {
+            deathTimer = .4f;
+        }
+        if (health <= 0)
+        {
+            // connor work
 
-            Destroy(gameObject);
+            enemyAnimation.GetComponent<Animator>().SetBool("zombieDeath", true);
+
+            deathTimer -= Time.deltaTime;
+            if (deathTimer <= 0f)
+            {
+                Destroy(gameObject);
+            }
+
+            // connor work
+
+
         }
 
         AttackingBarricade();
-       
+
     }
 
     void AttackingBarricade()
@@ -54,9 +77,11 @@ public class EnemyAttributes : MonoBehaviour
             atBarricade = false;
         }
 
-        if (atBarricade == true) 
+        if (atBarricade == true)
         {
-
+            // connor work
+            enemyAnimation.GetComponent<Animator>().SetBool("zombieAttacking", true);
+            // connor work
             if (attackTimer > 0)
             {
                 attackTimer -= Time.deltaTime;
@@ -66,6 +91,12 @@ public class EnemyAttributes : MonoBehaviour
                 barricadeManager.GetComponent<BarricadeManager>().barricadeHealth -= attackDamage;
                 attackTimer = attackTimerStart;
             }
+        }
+        else
+        {
+            // connor work
+            enemyAnimation.GetComponent<Animator>().SetBool("zombieAttacking", false);
+            // connor work
         }
     }
     private void OnTriggerEnter2D(Collider2D player)

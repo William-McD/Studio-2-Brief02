@@ -25,6 +25,8 @@ public class EnemyChase : MonoBehaviour
 
     private float nearestDistance = 10000f;
 
+
+
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
