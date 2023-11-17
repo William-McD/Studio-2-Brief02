@@ -121,7 +121,6 @@ public class DayTimeManager : MonoBehaviour
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;
         enemySpawner.GetComponent<EnemySpawner>().currentNight++;
-        enemySpawner.GetComponent<EnemySpawner>().CountdownSwitch();
 
         playerController.SetActive(true);
         playerController.GetComponent<PlayerController>().gunOverheatLimit = dayGunOverheatImprovement;

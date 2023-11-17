@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject enemyNormal;
+    public GameObject enemyQuick;
+    public GameObject enemyTank;
     public float spawnRadius;
 
 
     [SerializeField] float countdownTimer;
-    public float countdownTimerStart;
-
-    public float countdownTimerDayOne;
-    public float countdownTimerDayTwo;
-    public float countdownTimerDayThree;
-    public float countdownTimerDayFour;
-
+    [SerializeField] float countdownTimerStart;
+    bool isNotSpawning;
 
     public int spawnCounter;
     public int spawnCounterLimit;
@@ -29,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
         manager = GameObject.FindGameObjectWithTag("Manager");
         currentNight = manager.GetComponent<GameEventTracker>().nightCounter;
         isDay = manager.GetComponent<GameEventTracker>().isDay;
-
+        countdownTimerStart = 60f;
         countdownTimer = countdownTimerStart;
     }
 
@@ -44,69 +41,99 @@ public class EnemySpawner : MonoBehaviour
     {
         if (currentNight == 1 && isDay == false) // NIGHT ONE
         {
-            spawnCounterLimit = 10;
-            SpawnTimer();
-        }
-
-        if (currentNight == 2 && isDay == false) // NIGHT TWO
-        {
-            spawnCounterLimit = 15;
-            SpawnTimer();
-        }
-
-        if (currentNight == 3 && isDay == false) // NIGHT THREE
-        {
-            spawnCounterLimit = 15;
-            SpawnTimer();
-        }
-
-        if (currentNight == 4 && isDay == false) // NIGHT FOUR
-        {
-            spawnCounterLimit = 20;
-            SpawnTimer();
-        }
-
-    }
-
-    public void CountdownSwitch() 
-    {
-        if (currentNight == 1) // NIGHT ONE
-        {
-            countdownTimerStart = countdownTimerDayOne; 
-        }
-
-        if (currentNight == 2) // NIGHT TWO
-        {
-            countdownTimerStart = countdownTimerDayTwo;
-        }
-
-        if (currentNight == 3) // NIGHT THREE
-        {
-            countdownTimerStart = countdownTimerDayThree;
-        }
-
-        if (currentNight == 4) // NIGHT FOUR
-        {
-            countdownTimerStart = countdownTimerDayFour;
+            SpawnList01();
         }
     }
 
     void SpawnTimer()
     {
-        if (countdownTimer >= 0 && spawnCounter < spawnCounterLimit)
+        if (countdownTimer >= 0)
         {
             countdownTimer -= Time.deltaTime;
         }
-        else if (spawnCounter < spawnCounterLimit)
+        else if (countdownTimer <= 0)
         {
-            SpawnEnemyOnEdge();
             countdownTimer = countdownTimerStart;
-            spawnCounter += 1;
         }
     }
 
+    void SpawnList01()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
+        
+        if (countdownCheck == 55 && spawnCounter == 0)
+        {
+            Debug.Log("Should be Spawning");
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 1;
 
-    private void SpawnEnemyOnEdge()
+        }
+        if (countdownCheck == 50f && spawnCounter == 1)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 2;
+        }
+        if (countdownCheck == 45 && spawnCounter == 2)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 3;
+        }
+        if (countdownCheck == 40 && spawnCounter == 3)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 4;
+
+        }
+        if (countdownCheck == 38 && spawnCounter == 4)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 5;
+        }
+        if (countdownCheck == 35 && spawnCounter == 5)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 6;
+        }
+        if (countdownCheck == 30 && spawnCounter == 6)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+
+            spawnCounter = 7;
+        }
+        if (countdownCheck == 20 && spawnCounter == 7)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 8;
+        }
+        if (countdownCheck == 15 && spawnCounter == 8)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 9;
+        }
+        if (countdownCheck == 10 && spawnCounter == 9)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter = 10;
+        }
+    }
+    void SpawnList02()
+    {
+
+    }
+
+    private void SpawnEnemyOnEdge(GameObject enemy)
     {
         float radius = spawnRadius;
         Vector3 randomPos = Random.insideUnitSphere * radius;
@@ -126,4 +153,5 @@ public class EnemySpawner : MonoBehaviour
         GameObject go = Instantiate(enemy, randomPos, Quaternion.identity);
         go.transform.position = randomPos;
     }
+
 }

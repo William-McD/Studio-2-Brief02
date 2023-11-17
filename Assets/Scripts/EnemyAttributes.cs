@@ -49,7 +49,7 @@ public class EnemyAttributes : MonoBehaviour
         {
             // connor work
 
-            enemyAnimation.GetComponent<Animator>().SetBool("zombieDeath", true);
+            enemyAnimation.GetComponent<Animator>().SetBool("ZombieDeath", true);
 
             deathTimer -= Time.deltaTime;
             if (deathTimer <= 0f)
@@ -80,7 +80,7 @@ public class EnemyAttributes : MonoBehaviour
         if (atBarricade == true)
         {
             // connor work
-            enemyAnimation.GetComponent<Animator>().SetBool("zombieAttacking", true);
+            enemyAnimation.GetComponent<Animator>().SetBool("ZombieAttacking", true);
             // connor work
             if (attackTimer > 0)
             {
@@ -95,7 +95,7 @@ public class EnemyAttributes : MonoBehaviour
         else
         {
             // connor work
-            enemyAnimation.GetComponent<Animator>().SetBool("zombieAttacking", false);
+            enemyAnimation.GetComponent<Animator>().SetBool("ZombieAttacking", false);
             // connor work
         }
     }
