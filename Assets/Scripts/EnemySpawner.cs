@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] float countdownTimer;
     [SerializeField] float countdownTimerStart;
-    bool isNotSpawning;
 
     public int spawnCounter;
     public int spawnCounterLimit;
@@ -43,6 +42,31 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnList01();
         }
+        if (currentNight == 2 && isDay == false) // NIGHT TWO
+        {
+            SpawnList02();
+        }
+        if (currentNight == 3 && isDay == false) // NIGHT Three
+        {
+            SpawnList03();
+        }
+        if (currentNight == 4 && isDay == false) // NIGHT FOUR
+        {
+            SpawnList04();
+        }
+        if (currentNight == 5 && isDay == false) // NIGHT FIVE
+        {
+            SpawnList05();
+        }
+        if (currentNight == 6 && isDay == false) // NIGHT SIX
+        {
+            SpawnList06();
+        }
+        if (currentNight == 7 && isDay == false) // NIGHT SEVEN
+        {
+            SpawnList07();
+        }
+
     }
 
     void SpawnTimer()
@@ -66,73 +90,224 @@ public class EnemySpawner : MonoBehaviour
         
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            Debug.Log("Should be Spawning");
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 1;
+            spawnCounter++;
 
         }
         if (countdownCheck == 50f && spawnCounter == 1)
         {
             SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 2;
+            spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 3;
+            spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 4;
+            spawnCounter++;
 
         }
         if (countdownCheck == 38 && spawnCounter == 4)
         {
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 5;
+            spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 5)
         {
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 6;
+            spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 6)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
 
-            spawnCounter = 7;
+            spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 7)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 8;
+            spawnCounter++;
         }
         if (countdownCheck == 15 && spawnCounter == 8)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 9;
+            spawnCounter++;
         }
         if (countdownCheck == 10 && spawnCounter == 9)
         {
             SpawnEnemyOnEdge(enemyNormal);
             SpawnEnemyOnEdge(enemyNormal);
-            spawnCounter = 10;
+            spawnCounter++;
         }
     }
     void SpawnList02()
     {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 6; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
+
+        if (countdownCheck == 55 && spawnCounter == 0)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 51 && spawnCounter == 1) 
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 40 && spawnCounter == 2)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+        if (countdownCheck == 30 && spawnCounter == 3)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+        if (countdownCheck == 20 && spawnCounter == 4)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 10 && spawnCounter == 5)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+    }
+    void SpawnList03()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
+        if (countdownCheck == 55 && spawnCounter == 0)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 50 && spawnCounter == 1)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 45 && spawnCounter == 2)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 40 && spawnCounter == 3)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 35 && spawnCounter == 4)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 30 && spawnCounter == 5)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 20 && spawnCounter == 6)
+        {
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+        if (countdownCheck == 18 && spawnCounter == 6)
+        {
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+
+        }
+    }
+    void SpawnList04()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
 
     }
+    void SpawnList05()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
 
+    }
+    void SpawnList06()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
+
+    }
+    void SpawnList07()
+    {
+        SpawnTimer();
+        int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
+        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
+
+    }
     private void SpawnEnemyOnEdge(GameObject enemy)
     {
         float radius = spawnRadius;
