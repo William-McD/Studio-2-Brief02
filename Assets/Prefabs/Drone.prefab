@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1601622978838777286}
   - component: {fileID: 6513534274245286786}
   m_Layer: 0
-  m_Name: zombie_sprite
+  m_Name: drone_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 9151179193809772473}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: Enemy
+  m_TagString: Drone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260484010210856022}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

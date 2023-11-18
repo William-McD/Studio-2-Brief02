@@ -13,7 +13,8 @@ public class BarricadeManager : MonoBehaviour
     public GameObject drone01;
     public GameObject drone02;
     public GameObject drone03;
-    List <GameObject> droneList = new List <GameObject>();
+    //public List <GameObject> droneList = new List <GameObject>();
+    public int droneCount;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class BarricadeManager : MonoBehaviour
                 b.SetActive(true);
             }    
         }
-
+        DroneManager();
     }
     void DestroyBarricade()
     {
@@ -45,4 +46,33 @@ public class BarricadeManager : MonoBehaviour
             b.SetActive(false);
         }
     }
+
+    public void DroneManager()
+    {
+         if (droneCount == 1)
+        {
+            drone01.SetActive(true);
+            drone02.SetActive(false);
+            drone03.SetActive(false);
+        }
+        else if (droneCount == 2)
+        {
+            drone01.SetActive(true);
+            drone02.SetActive(true);
+            drone03.SetActive(false);
+        }
+        else if (droneCount == 3)
+        {
+            drone01.SetActive(true);
+            drone02.SetActive(true);
+            drone03.SetActive(true);
+        }
+        else
+        {
+            drone01.SetActive(false);
+            drone02.SetActive(false);
+            drone03.SetActive(false);
+        }
+    }
+
 }

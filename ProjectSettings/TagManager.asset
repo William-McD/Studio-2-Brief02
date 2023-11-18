@@ -11,6 +11,7 @@ TagManager:
   - Manager
   - Daytime
   - Obstacle
+  - Drone
   layers:
   - Default
   - TransparentFX

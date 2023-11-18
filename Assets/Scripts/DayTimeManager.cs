@@ -16,6 +16,7 @@ public class DayTimeManager : MonoBehaviour
     int energyPoints;
 
     public TMP_Text barricadeRepairText;
+    public TMP_Text repairValueText;
     public int startingBarricadeHealth;
     int dayBarricadeRepair;
     int repairAmount;
@@ -44,7 +45,12 @@ public class DayTimeManager : MonoBehaviour
 
         startingGunOverheatLimit = playerController.GetComponent<PlayerController>().gunOverheatLimit;
         dayGunOverheatImprovement = startingGunOverheatLimit;
-        energyPoints = 6;
+
+        startingDroneAmount = barricadeManager.GetComponent<BarricadeManager>().droneCount;
+        dayDroneAmount = startingDroneAmount;
+
+        energyPoints = 8;
+
     }
 
     // Update is called once per frame
@@ -54,10 +60,14 @@ public class DayTimeManager : MonoBehaviour
         whatDayText.text = ("Day " + day);
         energyPointText.text = ("Energy Points: " + energyPoints);
 
-        barricadeRepairText.text = (dayBarricadeRepair + "%");
-        overheatImprovementText.text = (dayGunOverheatImprovement + "0%");
-
         repairAmount = 5 + (5 * startingDroneAmount);
+
+        barricadeRepairText.text = (dayBarricadeRepair + "%");
+        repairValueText.text = ("Repair = " + repairAmount + "%");
+
+        overheatImprovementText.text = (dayGunOverheatImprovement + "0%");
+        droneAmountText.text = (dayDroneAmount + "/3");
+
 
         // FIRST PLAYABLE ONLY----------------
         if (day == 4)
@@ -68,7 +78,7 @@ public class DayTimeManager : MonoBehaviour
     }
     public void BarricadeRepairPlus()
     {
-        if (dayBarricadeRepair < 96 && energyPoints > 0)
+        if (dayBarricadeRepair < (100 - (repairAmount + 1)) && energyPoints > 0)
         {
             dayBarricadeRepair += repairAmount;
             energyPoints--;
@@ -83,14 +93,14 @@ public class DayTimeManager : MonoBehaviour
     }
     public void BarricadeRepairMinus()
     {
-        if (dayBarricadeRepair < 100 && dayBarricadeRepair > startingBarricadeHealth && energyPoints < 6)
+        if (dayBarricadeRepair < 100 && dayBarricadeRepair > startingBarricadeHealth && energyPoints < 8)
         {
-            dayBarricadeRepair -= 5;
+            dayBarricadeRepair -= repairAmount;
             energyPoints++;
         }
         else if (dayBarricadeRepair == 100 && energyPoints < 6 && trueValue > 0)
         {
-            dayBarricadeRepair = trueValue -= 5;
+            dayBarricadeRepair = trueValue -= repairAmount;
             trueValue -= trueValue;
             energyPoints++;
         }
@@ -107,7 +117,7 @@ public class DayTimeManager : MonoBehaviour
 
     public void GunImprovementMinus()
     {
-        if (dayGunOverheatImprovement > startingGunOverheatLimit && energyPoints < 6)
+        if (dayGunOverheatImprovement > startingGunOverheatLimit && energyPoints < 8)
         {
             dayGunOverheatImprovement -= 1;
             energyPoints++;
@@ -116,11 +126,19 @@ public class DayTimeManager : MonoBehaviour
 
     public void DronePlus()
     {
-
+        if (energyPoints >= 6 && dayDroneAmount < 3)
+        {
+            dayDroneAmount += 1;
+            energyPoints -= 6;
+        }
     }
     public void DroneMinus()
     {
-
+        if (energyPoints <8 && dayDroneAmount > startingDroneAmount) 
+        {
+            dayDroneAmount -= 1;
+            energyPoints += 6;
+        }
     }
 
 
@@ -130,6 +148,7 @@ public class DayTimeManager : MonoBehaviour
         dayTimeUI.SetActive(false);
 
         barricadeManager.GetComponent<BarricadeManager>().barricadeHealth = dayBarricadeRepair;
+        barricadeManager.GetComponent<BarricadeManager>().droneCount = dayDroneAmount;
 
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;
@@ -139,6 +158,9 @@ public class DayTimeManager : MonoBehaviour
         playerController.GetComponent<PlayerController>().gunOverheatLimit = dayGunOverheatImprovement;
         playerController.GetComponent<PlayerController>().gunCooldown = 0f;
         playerController.GetComponent<PlayerController>().ResetPosition();
+
+
+
 
         GetComponent<GameEventTracker>().isDay = false;
     }
