@@ -12,12 +12,18 @@ public class DayTimeManager : MonoBehaviour
 
     public TMP_Text whatDayText;
 
-    int energyPoints;
     public TMP_Text energyPointText;
+    int energyPoints;
 
-    public int startingBarricadeHealth;
     public TMP_Text barricadeRepairText;
+    public int startingBarricadeHealth;
     int dayBarricadeRepair;
+    int repairAmount;
+
+    public TMP_Text droneAmountText;
+    public int startingDroneAmount;
+    int dayDroneAmount;
+
 
     [SerializeField] int trueValue;
 
@@ -51,6 +57,7 @@ public class DayTimeManager : MonoBehaviour
         barricadeRepairText.text = (dayBarricadeRepair + "%");
         overheatImprovementText.text = (dayGunOverheatImprovement + "0%");
 
+        repairAmount = 5 + (5 * startingDroneAmount);
 
         // FIRST PLAYABLE ONLY----------------
         if (day == 4)
@@ -63,13 +70,13 @@ public class DayTimeManager : MonoBehaviour
     {
         if (dayBarricadeRepair < 96 && energyPoints > 0)
         {
-            dayBarricadeRepair += 5;
+            dayBarricadeRepair += repairAmount;
             energyPoints--;
         }
         //Basically stops overspill of repair
-        else if (dayBarricadeRepair >= 96 && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
+        else if (dayBarricadeRepair >= (100 - (repairAmount+1)) && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
         {
-            trueValue = dayBarricadeRepair += 5;
+            trueValue = dayBarricadeRepair += repairAmount;
             dayBarricadeRepair = 100;
             energyPoints--;
         }
@@ -80,14 +87,12 @@ public class DayTimeManager : MonoBehaviour
         {
             dayBarricadeRepair -= 5;
             energyPoints++;
-
         }
         else if (dayBarricadeRepair == 100 && energyPoints < 6 && trueValue > 0)
         {
             dayBarricadeRepair = trueValue -= 5;
             trueValue -= trueValue;
             energyPoints++;
-
         }
     }
 
@@ -97,7 +102,6 @@ public class DayTimeManager : MonoBehaviour
         {
             dayGunOverheatImprovement += 1;
             energyPoints--;
-
         }
     }
 
@@ -107,9 +111,18 @@ public class DayTimeManager : MonoBehaviour
         {
             dayGunOverheatImprovement -= 1;
             energyPoints++;
-
         }
     }
+
+    public void DronePlus()
+    {
+
+    }
+    public void DroneMinus()
+    {
+
+    }
+
 
 
     public void StartNextNight()

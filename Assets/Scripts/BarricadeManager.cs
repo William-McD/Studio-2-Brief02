@@ -10,22 +10,21 @@ public class BarricadeManager : MonoBehaviour
     public TMP_Text barricadeText;
     GameObject[] barricades;
 
+    public GameObject drone01;
+    public GameObject drone02;
+    public GameObject drone03;
+    List <GameObject> droneList = new List <GameObject>();
+
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
     // Update is called once per frame
     void Update()
     {
         barricadeText.text = (barricadeHealth + "%");
-
         if (barricadeHealth <= 0)
         {
             DestroyBarricade();
@@ -37,6 +36,7 @@ public class BarricadeManager : MonoBehaviour
                 b.SetActive(true);
             }    
         }
+
     }
     void DestroyBarricade()
     {

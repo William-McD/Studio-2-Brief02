@@ -130,10 +130,7 @@ public class PlayerController : MonoBehaviour
                 overheated = false;
                 gunCooldown = 0;
             }
-
-
         }
-
     }
 
     public void ActiveCooldown(InputAction.CallbackContext context)
@@ -142,7 +139,6 @@ public class PlayerController : MonoBehaviour
         {
             gunCooldown -= .5f;
         }
-
     }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function
     {
@@ -154,10 +150,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Fire!");
             Instantiate(bullet, child.transform.position, child.transform.rotation);
             gunCooldown += gunHeatUpAmount;
-
-
-
-
         }
         else
         {
@@ -167,8 +159,7 @@ public class PlayerController : MonoBehaviour
             isShooting = false;
             //connors stuff
         }
-
-    }
+            }
 
     public void PlayerAim()
     {
@@ -206,7 +197,6 @@ public class PlayerController : MonoBehaviour
             {
                 shootingAnimationTimer = .3f;
                 isShooting = false;
-
             }
         }
     }

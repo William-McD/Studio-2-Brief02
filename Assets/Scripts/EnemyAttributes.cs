@@ -48,7 +48,6 @@ public class EnemyAttributes : MonoBehaviour
         if (health <= 0)
         {
             // connor work
-
             enemyAnimation.GetComponent<Animator>().SetBool("ZombieDeath", true);
 
             deathTimer -= Time.deltaTime;
@@ -56,14 +55,9 @@ public class EnemyAttributes : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
             // connor work
-
-
         }
-
         AttackingBarricade();
-
     }
 
     void AttackingBarricade()
@@ -89,6 +83,7 @@ public class EnemyAttributes : MonoBehaviour
             else if (attackTimer <= 0)
             {
                 barricadeManager.GetComponent<BarricadeManager>().barricadeHealth -= attackDamage;
+                AttackDrone();
                 attackTimer = attackTimerStart;
             }
         }
@@ -104,6 +99,31 @@ public class EnemyAttributes : MonoBehaviour
         if (player.CompareTag("Player") && barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 0)
         {
             player.GetComponent<PlayerController>().alive = false;
+        }
+    }
+
+    void AttackDrone()
+    {
+        GameObject currentBarricade = GetComponent<EnemyChase>().barricade;
+        int randomNum = Random.Range(0, 100);
+        if (randomNum <= 20)
+        {
+            if (currentBarricade.name == "Barricade01" || currentBarricade.name == "Barricade02")
+            {
+                Debug.Log("Do damage against Drone01");
+            }
+            else if (currentBarricade.name == "Barricade03" || currentBarricade.name == "Barricade04")
+            {
+                Debug.Log("Do damage against Drone02");
+            }
+            else if (currentBarricade.name == "Barricade05" || currentBarricade.name == "Barricade06")
+            {
+                Debug.Log("Do damage against Drone03");
+            }
+            else
+            {
+                Debug.Log("There isn't any drones");                
+            }
         }
     }
 }
