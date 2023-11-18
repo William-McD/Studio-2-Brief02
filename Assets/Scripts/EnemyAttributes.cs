@@ -110,15 +110,18 @@ public class EnemyAttributes : MonoBehaviour
         {
             if (currentBarricade.name == "Barricade01" || currentBarricade.name == "Barricade02")
             {
-                Debug.Log("Do damage against Drone01");
+               GameObject drone = barricadeManager.GetComponent<BarricadeManager>().drone01;
+               drone.GetComponent<DroneHealth>().health -= 1;
             }
             else if (currentBarricade.name == "Barricade03" || currentBarricade.name == "Barricade04")
             {
-                Debug.Log("Do damage against Drone02");
+                GameObject drone = barricadeManager.GetComponent<BarricadeManager>().drone02;
+                drone.GetComponent<DroneHealth>().health -= 1;
             }
             else if (currentBarricade.name == "Barricade05" || currentBarricade.name == "Barricade06")
             {
-                Debug.Log("Do damage against Drone03");
+                GameObject drone = barricadeManager.GetComponent<BarricadeManager>().drone02;
+                drone.GetComponent<DroneHealth>().health -= 1;
             }
             else
             {

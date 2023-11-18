@@ -70,7 +70,7 @@ public class DayTimeManager : MonoBehaviour
 
 
         // FIRST PLAYABLE ONLY----------------
-        if (day == 4)
+        if (day == 3)
         {
             nextDayButton.SetActive(false);
         }
@@ -149,6 +149,7 @@ public class DayTimeManager : MonoBehaviour
 
         barricadeManager.GetComponent<BarricadeManager>().barricadeHealth = dayBarricadeRepair;
         barricadeManager.GetComponent<BarricadeManager>().droneCount = dayDroneAmount;
+        barricadeManager.GetComponent<BarricadeManager>().DroneManager();
 
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;

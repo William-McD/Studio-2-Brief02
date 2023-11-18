@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     //Shooting Variables
     public GameObject bullet;
-    public GameObject child;
+    GameObject child;
 
     public bool overheated;
 

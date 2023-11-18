@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4627901061620016147}
   - component: {fileID: 5686704585634261681}
   - component: {fileID: 9024718385831849222}
+  - component: {fileID: -7607851009496783888}
   - component: {fileID: 490947487211787626}
   - component: {fileID: 9151179193809772473}
   m_Layer: 0
@@ -241,6 +242,19 @@ MonoBehaviour:
   isdead: 0
   deathTimer: 0
   isattacking: 0
+--- !u!114 &-7607851009496783888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260484010210856022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ec462330bd7b14db4be2a68cfd86c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drones: []
 --- !u!61 &490947487211787626
 BoxCollider2D:
   m_ObjectHideFlags: 0
