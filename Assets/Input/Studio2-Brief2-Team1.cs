@@ -53,6 +53,15 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cooldown"",
+                    ""type"": ""Button"",
+                    ""id"": ""22c20f96-65b6-4978-95d6-1e59f5d3dfbc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -273,6 +282,17 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcabd0e8-c59e-4f95-a89c-37a9fb002d21"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Cooldown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -863,6 +883,7 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_Cooldown = m_Player.FindAction("Cooldown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -939,6 +960,7 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_Cooldown;
     public struct PlayerActions
     {
         private @Studio2Brief2Team1 m_Wrapper;
@@ -946,6 +968,7 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @Cooldown => m_Wrapper.m_Player_Cooldown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -964,6 +987,9 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @Cooldown.started += instance.OnCooldown;
+            @Cooldown.performed += instance.OnCooldown;
+            @Cooldown.canceled += instance.OnCooldown;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -977,6 +1003,9 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @Cooldown.started -= instance.OnCooldown;
+            @Cooldown.performed -= instance.OnCooldown;
+            @Cooldown.canceled -= instance.OnCooldown;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1162,6 +1191,7 @@ public partial class @Studio2Brief2Team1: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnCooldown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
