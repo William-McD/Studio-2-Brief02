@@ -64,7 +64,7 @@ public class GameEventTracker : MonoBehaviour
 
         if (overheated == false)
         {
-            overheatText.color = Color.green;
+            overheatText.color = Color.blue;
             overheatText.text = ("Ready to Fire!");
         }
         else
