@@ -6151,7 +6151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a6c02f8a84fea4ba33b3f2aeab0f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyNormal: {fileID: 8260484010210856022, guid: fe0549023542d834e8e1bc4d32ce9f0a, type: 3}
+  enemyNormal: {fileID: 8260484010210856022, guid: 179930359eeb1ef42861586593567d6a, type: 3}
   enemyQuick: {fileID: 8260484010210856022, guid: d38410a3adc0d814382cf84c94cf9e3d, type: 3}
   enemyTank: {fileID: 8260484010210856022, guid: 9bc6979560e29484281e9e80eabe5719, type: 3}
   spawnRadius: 20
