@@ -205,7 +205,7 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnTimer();
         int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
-        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        spawnCounterLimit = 8; // spawn limit is 10 times for Day01
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
@@ -262,7 +262,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyOnEdge(enemyTank);
             spawnCounter++;
         }
-        if (countdownCheck == 18 && spawnCounter == 6)
+        if (countdownCheck == 18 && spawnCounter == 7)
         {
             SpawnEnemyOnEdge(enemyQuick);
             SpawnEnemyOnEdge(enemyQuick);
