@@ -17,6 +17,7 @@ public class EnemyChase : MonoBehaviour
     public float startingSpeed;
     public float chargeSpeed; //for when the barricade is destroyed
     //Nathan
+    public float climbingSpeed;
     public float obstacleSpeed;
     //Nathan
 
@@ -73,8 +74,13 @@ public class EnemyChase : MonoBehaviour
         //Nathan
         if (other.CompareTag("Obstacle"))
         {
+            //           Debug.Log("IS SLOWED BY OBSTACLE");
             speed = obstacleSpeed;
-            Debug.Log("IS SLOWED BY OBSTACLE");
+        }
+        if (other.CompareTag("Pod"))
+        {
+            //           Debug.Log("IS SLOWED BY OBSTACLE");
+            speed = climbingSpeed;
         }
         //Nathan
     }
@@ -121,6 +127,9 @@ public class EnemyChase : MonoBehaviour
 
     public void FindClosestBarricade()
     {
+        //Nathan
+        barricades = GameObject.FindGameObjectsWithTag("Barricade");
+        //Nathan
         for (int i = 0; i< barricades.Length; i++)
         {
             barricadeDistance = Vector2.Distance(transform.position, barricades[i].transform.position); // get distance between barricade and enemy 

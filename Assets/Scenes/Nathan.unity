@@ -9948,6 +9948,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barricadeHealth: 100
   barricadeText: {fileID: 426041811}
+  ShieldedBarricadePrefab: {fileID: 4657402119451832383, guid: c5f0df422e3eeed438fd982f2562d572, type: 3}
+  SlightlyDamagedBarricadePrefab: {fileID: 549393788337216042, guid: 2d8eafdb4c7829241992437831bf6ee9, type: 3}
+  HalfDamagedBarricadePrefab: {fileID: 7533681639274332891, guid: 3a0cf11b2ccd0464f9134ec5ddb544c6, type: 3}
+  MostlyDamagedPrefab: {fileID: 2183549195700465558, guid: b90b01ae133d31a448bba7f0a66fa789, type: 3}
+  DestroyedBarricadePrefab: {fileID: 4752984545320692406, guid: dcc81873a9ae2f742974fc2daddaa861, type: 3}
+  ShieldedBarricade: 0
+  SlightlyDamaged: 0
+  HalfDamaged: 0
+  MostlyDamaged: 0
+  BarricadeDestroyed: 0
+  barricadeHP: 0
   drone01: {fileID: 1965252004}
   drone02: {fileID: 1836411958}
   drone03: {fileID: 538834808}

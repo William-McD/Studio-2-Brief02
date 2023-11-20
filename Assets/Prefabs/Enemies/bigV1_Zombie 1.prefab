@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b13bf0073224683488cd1b3104a1e4fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   speed: 0
   startingSpeed: 1.6
   chargeSpeed: 2.6
+  climbingSpeed: 0.5
   obstacleSpeed: 1
   barricadeDistance: 0
   playerDistance: 0
