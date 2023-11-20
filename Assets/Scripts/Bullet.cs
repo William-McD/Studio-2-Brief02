@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,11 +40,19 @@ public class Bullet : MonoBehaviour
         }
 
         //Nathan Tree Collider
-        else if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle"))
         {
-            Debug.Log("COLLIDING WITH TREES");
+            //Debug.Log("COLLIDING WITH TREES");
             Destroy(gameObject);
         }
-        //Nathan Tree Colloider
+        //Nathan Tree Collider
+
+        //Nathan Pod Collider
+        if (other.CompareTag("Pod"))
+        {
+            //Debug.Log("COLLIDING WITH SHIP-POD");
+            Destroy(gameObject);
+        }
+        //Nathan Pod Colloider}
     }
 }

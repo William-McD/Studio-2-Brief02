@@ -6,6 +6,7 @@ public class Barricade : MonoBehaviour
 {
 
     //Nathan's code
+
     //calls the BarricadeManager script
     public BarricadeManager script;
     // Start is called before the first frame update

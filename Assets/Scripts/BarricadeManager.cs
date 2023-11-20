@@ -72,19 +72,19 @@ void Update()
         }
         if ((HalfDamaged == false) && (barricadeHP == 4))
         {
-            GameObject clone = Instantiate(prefabB, transform.position, transform.rotation);
+            GameObject clone = Instantiate(prefabC, transform.position, transform.rotation);
             clone.GetComponent<Barricade>().script = this;
             HalfDamaged = true;
         }
         if ((MostlyDamaged == false) && (barricadeHP == 5))
         {
-            GameObject clone = Instantiate(prefabB, transform.position, transform.rotation);
+            GameObject clone = Instantiate(prefabD, transform.position, transform.rotation);
             clone.GetComponent<Barricade>().script = this;
             MostlyDamaged = true;
         }
         if ((BarricadeDestroyed == false) && (barricadeHP == 6))
         {
-            GameObject clone = Instantiate(prefabB, transform.position, transform.rotation);
+            GameObject clone = Instantiate(prefabE, transform.position, transform.rotation);
             clone.GetComponent<Barricade>().script = this;
             BarricadeDestroyed = true;
         }
