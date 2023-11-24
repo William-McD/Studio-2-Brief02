@@ -98,7 +98,7 @@ public class DayTimeManager : MonoBehaviour
             dayBarricadeRepair -= repairAmount;
             energyPoints++;
         }
-        else if (dayBarricadeRepair == 100 && energyPoints < 6 && trueValue > 0)
+        else if (dayBarricadeRepair == 100 && energyPoints < 8 && trueValue > 0)
         {
             dayBarricadeRepair = trueValue -= repairAmount;
             trueValue -= trueValue;
