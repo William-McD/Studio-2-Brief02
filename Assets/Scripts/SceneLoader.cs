@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject tutScreen;
-    [SerializeField]
-    private GameObject buttons;
+    [SerializeField] private GameObject tutScreen;
+    [SerializeField] private GameObject buttons;
     public void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
