@@ -280,9 +280,80 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnTimer();
         int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
-        spawnCounterLimit = 10; // spawn limit is 10 times for Day01
+        spawnCounterLimit = 8; // spawn limit is 10 times for Day01
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
-
+        if (countdownCheck == 55 && spawnCounter == 0)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 50 && spawnCounter == 1)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 45 && spawnCounter == 2)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 40 && spawnCounter == 3)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 35 && spawnCounter == 4)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 30 && spawnCounter == 5)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 20 && spawnCounter == 6)
+        {
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+        if (countdownCheck == 18 && spawnCounter == 7)
+        {
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
     }
     void SpawnList05()
     {
@@ -290,7 +361,72 @@ public class EnemySpawner : MonoBehaviour
         int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
         spawnCounterLimit = 10; // spawn limit is 10 times for Day01
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
-
+        if (countdownCheck == 55 && spawnCounter == 0)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            spawnCounter++;
+        }
+        if (countdownCheck == 50 && spawnCounter == 1)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 45 && spawnCounter == 2)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 40 && spawnCounter == 3)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 35 && spawnCounter == 4)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 30 && spawnCounter == 5)
+        {
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(enemyQuick);
+            spawnCounter++;
+        }
+        if (countdownCheck == 20 && spawnCounter == 6)
+        {
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
+        if (countdownCheck == 18 && spawnCounter == 7)
+        {
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(enemyTank);
+            spawnCounter++;
+        }
     }
     void SpawnList06()
     {
