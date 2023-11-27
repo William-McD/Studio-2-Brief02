@@ -27,7 +27,7 @@ public class DroneHealth : MonoBehaviour
         healthSlider.value = health;
         //Chris
 
-        if (health <= 0)
+        if (health <= 0) // Chris
         {
             GameObject barricadeManager = GameObject.FindGameObjectWithTag("BarricadeManager");
             barricadeManager.GetComponent<BarricadeManager>().droneCount -= 1;

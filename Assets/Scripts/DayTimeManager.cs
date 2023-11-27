@@ -69,7 +69,7 @@ public class DayTimeManager : MonoBehaviour
         droneAmountText.text = (dayDroneAmount + "/3");
 
 
-        // FIRST PLAYABLE ONLY----------------
+        // FIRST PLAYABLE ONLY---------------- //Chris
         if (day == 5)
         {
             nextDayButton.SetActive(false);
