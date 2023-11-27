@@ -229,6 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   startingHealth: 3
+  droneUI: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!114 &8272538273362714225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +250,7 @@ MonoBehaviour:
   bullet: {fileID: 3207532154510530491, guid: 6ffc0adf887b1e744bd70dc43cb2dacd, type: 3}
   shootTimer: 0
   shootTimerStart: 3
+  droneAnimation: {fileID: 2167140516931386528}
 --- !u!1 &8460823098491790787
 GameObject:
   m_ObjectHideFlags: 0

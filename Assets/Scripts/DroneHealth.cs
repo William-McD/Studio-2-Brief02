@@ -16,7 +16,6 @@ public class DroneHealth : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        droneUI.SetActive(true);
         health = startingHealth;
     }
 
@@ -27,12 +26,17 @@ public class DroneHealth : MonoBehaviour
         healthSlider.value = health;
         //Chris
 
-        if (health <= 0) // Chris
+        if (health > 0)
+        {
+            droneUI.SetActive(true);
+        }
+        else if (health <= 0) // Chris
         {
             GameObject barricadeManager = GameObject.FindGameObjectWithTag("BarricadeManager");
             barricadeManager.GetComponent<BarricadeManager>().droneCount -= 1;
             droneUI.SetActive(false);
             gameObject.SetActive(false);
+            health = 3;
         }
     }
 }

@@ -153,6 +153,7 @@ public class DayTimeManager : MonoBehaviour
 
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;
+        enemySpawner.GetComponent<EnemySpawner>().countdownTimer = enemySpawner.GetComponent<EnemySpawner>().countdownTimerStart;
         enemySpawner.GetComponent<EnemySpawner>().currentNight++;
 
         playerController.SetActive(true);

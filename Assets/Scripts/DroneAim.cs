@@ -16,21 +16,46 @@ public class DroneAim : MonoBehaviour
     public float shootTimer;
     public float shootTimerStart;
 
+
+    //connors stuff
+    public GameObject droneAnimation;
+    public float animTimer;
+    public bool droneShooting;
+    //connors stuff
+
+
     private void Awake()
     {
         shootOrigin = transform.GetChild(0).gameObject;
         shootTimer = shootTimerStart;
+        animTimer = .3f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        droneAnimation.GetComponent<Animator>().SetBool("droneShooting", droneShooting);
+
         FindClosestEnemy();
         Vector2 direction = enemy.transform.position - transform.position;
         transform.up = direction;
+
         if (enemy != null)
         {
             ShootAtEnemy();
+
+            //connors stuff
+            if (animTimer > 0 && droneShooting == true)
+            {
+                animTimer -= Time.deltaTime;
+                if (animTimer <= 0)
+                {
+                    droneShooting = false;
+                    animTimer = 0.3f;
+                }
+            }
+            //connors stuff
         }
     }
 
@@ -56,8 +81,14 @@ public class DroneAim : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0)
         {
+            //connors stuff
+            droneShooting = true;
+            droneAnimation.GetComponent<Animator>().SetBool("droneShooting", droneShooting);
+            //connors stuff
             Instantiate(bullet, shootOrigin.transform.position, shootOrigin.transform.rotation);
             shootTimer = shootTimerStart;
+
+
         }
     }
 }

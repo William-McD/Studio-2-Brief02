@@ -10,8 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRadius;
 
 
-    [SerializeField] float countdownTimer;
-    [SerializeField] float countdownTimerStart;
+    public float countdownTimer;
+    public float countdownTimerStart;
 
     public int spawnCounter;
     public int spawnCounterLimit;
