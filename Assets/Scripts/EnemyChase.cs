@@ -95,7 +95,7 @@ public class EnemyChase : MonoBehaviour
         {
             speed = startingSpeed;
         }
-        if (other.CompareTag("pod"))
+        if (other.CompareTag("Pod"))
         {
             speed = startingSpeed;
         }
