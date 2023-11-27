@@ -229,6 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   startingHealth: 3
+  droneUI: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!114 &8272538273362714225
 MonoBehaviour:
   m_ObjectHideFlags: 0
