@@ -9895,6 +9895,17 @@ MonoBehaviour:
   drone02: {fileID: 1836411958}
   drone03: {fileID: 538834808}
   droneCount: 0
+  prefabA: {fileID: 0}
+  prefabB: {fileID: 0}
+  prefabC: {fileID: 0}
+  prefabD: {fileID: 0}
+  prefabE: {fileID: 0}
+  ShieldedBarricade: 0
+  SlightlyDamaged: 0
+  HalfDamaged: 0
+  MostlyDamaged: 0
+  BarricadeDestroyed: 0
+  barricadeHP: 0
 --- !u!1 &1965252004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8260484010210856022, guid: 915e41c6158ac6446ac8622bbc508e14, type: 3}
@@ -10968,6 +10979,10 @@ PrefabInstance:
       propertyPath: cooldownBar
       value: 
       objectReference: {fileID: 1794228822}
+    - target: {fileID: 5148616668373013379, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
+      propertyPath: gunHeatUpAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7395488663461059789, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
