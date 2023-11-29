@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (overheated == true && alive == true && (gunCooldown > 0))
         {
-            gunCooldown -= .5f;
+            gunCooldown -= (gunOverheatLimit / 10);
         }
     }
     public void Fire(InputAction.CallbackContext context) //when called, inact firing function

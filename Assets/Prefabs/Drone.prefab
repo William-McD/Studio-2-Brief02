@@ -249,8 +249,10 @@ MonoBehaviour:
   nearestDistance: 1000
   bullet: {fileID: 3207532154510530491, guid: 6ffc0adf887b1e744bd70dc43cb2dacd, type: 3}
   shootTimer: 0
-  shootTimerStart: 3
+  shootTimerStart: 2.5
   droneAnimation: {fileID: 2167140516931386528}
+  animTimer: 0
+  droneShooting: 0
 --- !u!1 &8460823098491790787
 GameObject:
   m_ObjectHideFlags: 0
