@@ -9,7 +9,7 @@ public class DroneAim : MonoBehaviour
     public List<GameObject> enemyList = new List<GameObject>();
 
     public float enemyDistance;
-    public float nearestDistance = 1000f;
+    public float nearestDistance;
 
     public GameObject bullet;
     GameObject shootOrigin;
@@ -29,6 +29,7 @@ public class DroneAim : MonoBehaviour
         shootOrigin = transform.GetChild(0).gameObject;
         shootTimer = shootTimerStart;
         animTimer = .3f;
+        nearestDistance = 1000f;
 
     }
 
@@ -64,7 +65,6 @@ public class DroneAim : MonoBehaviour
         if (enemy == null)
         {
             nearestDistance = 1000f;
-            shootTimer = shootTimerStart;
         }
         for (int i = 0; i < enemyList.Count; i++)
         {
@@ -87,8 +87,7 @@ public class DroneAim : MonoBehaviour
             //connors stuff
             Instantiate(bullet, shootOrigin.transform.position, shootOrigin.transform.rotation);
             shootTimer = shootTimerStart;
-
-
+            nearestDistance = 1000f;
         }
     }
 }

@@ -16,12 +16,32 @@ public class BarricadeManager : MonoBehaviour
     //public List <GameObject> droneList = new List <GameObject>();
     public int droneCount;
 
+    //Nathan
+    public GameObject prefabA;
+    public GameObject prefabB;
+    public GameObject prefabC;
+    public GameObject prefabD;
+    public GameObject prefabE;
+    public bool ShieldedBarricade;
+    public bool SlightlyDamaged;
+    public bool HalfDamaged;
+    public bool MostlyDamaged;
+    public bool BarricadeDestroyed;
+    public int barricadeHP;
+    //Nathan
+
     private void Awake()
     {
         barricades = GameObject.FindGameObjectsWithTag("Barricade");
         drone01.SetActive(false);
         drone02.SetActive(false);
         drone03.SetActive(false);
+
+        //Nathan
+        //GameObject clone = Instantiate(prefabA, transform.position, transform.rotation);
+        //clone.GetComponent<Barricade>().script = this;
+       // barricadeHP = 1;
+        //Nathan
     }
 
 
@@ -40,6 +60,8 @@ public class BarricadeManager : MonoBehaviour
                 b.SetActive(true);
             }    
         }
+
+        //BarricadeAppearance();
     }
     void DestroyBarricade()
     {
@@ -74,6 +96,42 @@ public class BarricadeManager : MonoBehaviour
             drone03.SetActive(true);
         }
         
+    }
+
+    public void BarricadeAppearance()
+    {
+        //Nathan
+        if ((ShieldedBarricade == false) && (barricadeHP == 2))
+        {
+            GameObject clone = Instantiate(prefabB, transform.position, transform.rotation);
+            clone.GetComponent<Barricade>().script = this;
+            ShieldedBarricade = true;
+        }
+        if ((SlightlyDamaged == false) && (barricadeHP == 3))
+        {
+            GameObject clone = Instantiate(prefabB, transform.position, transform.rotation);
+            clone.GetComponent<Barricade>().script = this;
+            SlightlyDamaged = true;
+        }
+        if ((HalfDamaged == false) && (barricadeHP == 4))
+        {
+            GameObject clone = Instantiate(prefabC, transform.position, transform.rotation);
+            clone.GetComponent<Barricade>().script = this;
+            HalfDamaged = true;
+        }
+        if ((MostlyDamaged == false) && (barricadeHP == 5))
+        {
+            GameObject clone = Instantiate(prefabD, transform.position, transform.rotation);
+            clone.GetComponent<Barricade>().script = this;
+            MostlyDamaged = true;
+        }
+        if ((BarricadeDestroyed == false) && (barricadeHP == 6))
+        {
+            GameObject clone = Instantiate(prefabE, transform.position, transform.rotation);
+            clone.GetComponent<Barricade>().script = this;
+            BarricadeDestroyed = true;
+        }
+        //nathan
     }
 
 }
