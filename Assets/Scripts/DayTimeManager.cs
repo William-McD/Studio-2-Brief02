@@ -40,16 +40,31 @@ public class DayTimeManager : MonoBehaviour
     // Start is called before the first frame update
     public void SetUpDaytimeValues()
     {
-        startingBarricadeHealth = barricadeManager.GetComponent<BarricadeManager>().barricadeHealth;
+        if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth < 0)
+        {
+            startingBarricadeHealth = 0;
+        }
+        else
+        {
+            startingBarricadeHealth = barricadeManager.GetComponent<BarricadeManager>().barricadeHealth;
+        }
         dayBarricadeRepair = startingBarricadeHealth;
 
         startingGunOverheatLimit = playerController.GetComponent<PlayerController>().gunOverheatLimit;
         dayGunOverheatImprovement = startingGunOverheatLimit;
 
-        startingDroneAmount = barricadeManager.GetComponent<BarricadeManager>().droneCount;
+        if (barricadeManager.GetComponent<BarricadeManager>().droneCount < 0)
+        {
+            startingDroneAmount = 0;
+        }
+        else
+        {
+            startingDroneAmount = barricadeManager.GetComponent<BarricadeManager>().droneCount;
+        }
         dayDroneAmount = startingDroneAmount;
 
-        energyPoints = 8;
+
+        energyPoints = 9;
 
     }
 
@@ -93,7 +108,7 @@ public class DayTimeManager : MonoBehaviour
     }
     public void BarricadeRepairMinus()
     {
-        if (dayBarricadeRepair < 100 && dayBarricadeRepair > startingBarricadeHealth && energyPoints < 8)
+        if (dayBarricadeRepair < 100 && dayBarricadeRepair > startingBarricadeHealth && energyPoints < 9)
         {
             dayBarricadeRepair -= repairAmount;
             energyPoints++;
@@ -117,7 +132,7 @@ public class DayTimeManager : MonoBehaviour
 
     public void GunImprovementMinus()
     {
-        if (dayGunOverheatImprovement > startingGunOverheatLimit && energyPoints < 8)
+        if (dayGunOverheatImprovement > startingGunOverheatLimit && energyPoints < 9)
         {
             dayGunOverheatImprovement -= 1;
             energyPoints++;
@@ -134,7 +149,7 @@ public class DayTimeManager : MonoBehaviour
     }
     public void DroneMinus()
     {
-        if (energyPoints <8 && dayDroneAmount > startingDroneAmount) 
+        if (energyPoints <9 && dayDroneAmount > startingDroneAmount) 
         {
             dayDroneAmount -= 1;
             energyPoints += 6;
