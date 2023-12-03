@@ -38,9 +38,9 @@ public class BarricadeManager : MonoBehaviour
         drone03.SetActive(false);
 
         //Nathan
-//        GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
-//        clone.GetComponent<Barricade>().script = this;
-//        barricadeHP = 1;
+        GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
+        clone.GetComponent<Barricade>().script = this;
+        barricadeHP = 1;
         //Nathan
     }
 
