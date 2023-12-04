@@ -102,7 +102,7 @@ public class EnemyChase : MonoBehaviour
     }
     void DetermineTarget()
     {
-        if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 0 )
+        if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth <= 19 )
         {
             FindPlayer();
         }

@@ -8,7 +8,7 @@ public class BarricadeManager : MonoBehaviour
 {
     public int barricadeHealth;
     public TMP_Text barricadeText;
-    GameObject[] barricades;
+    public GameObject[] barricades;
 
     public GameObject drone01;
     public GameObject drone02;
@@ -17,30 +17,30 @@ public class BarricadeManager : MonoBehaviour
     public int droneCount;
 
     //Nathan
-    public GameObject PoweredBarricade;
-    public GameObject NonPoweredBarricade;
-    public GameObject DamagedBarricade;
-    public GameObject NearlyDestroyedBaricade;
-    public GameObject DestroyedBarricade;
-    public bool ShieldedBarricade;
-    public bool SlightlyDamaged;
-    public bool HalfDamaged;
-    public bool MostlyDamaged;
-    public bool BarricadeDestroyed;
-    public int barricadeHP;
+//    public GameObject PoweredBarricade;
+//    public GameObject NonPoweredBarricade;
+//    public GameObject DamagedBarricade;
+//    public GameObject NearlyDestroyedBaricade;
+//    public GameObject DestroyedBarricade;
+//    public bool ShieldedBarricade;
+//    public bool SlightlyDamaged;
+//    public bool HalfDamaged;
+//    public bool MostlyDamaged;
+//    public bool BarricadeDestroyed;
+//    public int barricadeHP;
     //Nathan
 
     private void Awake()
     {
-        barricades = GameObject.FindGameObjectsWithTag("Barricade");
+        //sbarricades = GameObject.FindGameObjectsWithTag("Barricade");
         drone01.SetActive(false);
         drone02.SetActive(false);
         drone03.SetActive(false);
 
         //Nathan
-        GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
-        clone.GetComponent<Barricade>().script = this;
-        barricadeHP = 1;
+        //GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
+        //clone.GetComponent<Barricade>().script = this;
+        //barricadeHP = 1;
         //Nathan
     }
 
@@ -49,18 +49,32 @@ public class BarricadeManager : MonoBehaviour
     void Update()
     {
         barricadeText.text = (barricadeHealth + "%");
-        if (barricadeHealth <= 0)
+        //if (barricadeHealth <= 0)
+        //{
+        //    DestroyBarricade();
+        //}
+        //else
+        //{
+        //    foreach (GameObject b in barricades)
+        //    {
+        //        b.SetActive(true);
+        //    }    
+        //}
+        int barricadeID = (100-barricadeHealth) / 20;
+        if (barricadeID > 4)
+            barricadeID = 4;
+        for(int i=0;i<5;++i)
         {
-            DestroyBarricade();
-        }
-        else
-        {
-            foreach (GameObject b in barricades)
+            if(i==barricadeID)
             {
-                b.SetActive(true);
+                barricades[i].SetActive(true);
+
+            }
+            else
+            {
+                barricades[i].SetActive(false);
             }    
         }
-
         //BarricadeAppearance();
     }
     void DestroyBarricade()
@@ -101,30 +115,30 @@ public class BarricadeManager : MonoBehaviour
     public void BarricadeAppearance()
     {
         //Nathan
-        if ((ShieldedBarricade == false) && (barricadeHP == 2))
-        {
-            GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
-            clone.GetComponent<Barricade>().script = this;
-            ShieldedBarricade = true;
-        }
-        if ((HalfDamaged == false) && (barricadeHP == 3))
-        {
-            GameObject clone = Instantiate(DamagedBarricade, transform.position, transform.rotation);
-            clone.GetComponent<Barricade>().script = this;
-            HalfDamaged = true;
-        }
-        if ((MostlyDamaged == false) && (barricadeHP == 4))
-        {
-            GameObject clone = Instantiate(NearlyDestroyedBaricade, transform.position, transform.rotation);
-            clone.GetComponent<Barricade>().script = this;
-            MostlyDamaged = true;
-        }
-        if ((BarricadeDestroyed == false) && (barricadeHP == 5))
-        {
-            GameObject clone = Instantiate(DestroyedBarricade, transform.position, transform.rotation);
-            clone.GetComponent<Barricade>().script = this;
-            BarricadeDestroyed = true;
-        }
+        //if ((ShieldedBarricade == false) && (barricadeHP == 2))
+        //{
+        //    GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
+        //    clone.GetComponent<Barricade>().script = this;
+        //    ShieldedBarricade = true;
+        //}
+        //if ((HalfDamaged == false) && (barricadeHP == 3))
+        //{
+        //    GameObject clone = Instantiate(DamagedBarricade, transform.position, transform.rotation);
+        //    clone.GetComponent<Barricade>().script = this;
+        //    HalfDamaged = true;
+        //}
+        //if ((MostlyDamaged == false) && (barricadeHP == 4))
+        //{
+        //    GameObject clone = Instantiate(NearlyDestroyedBaricade, transform.position, transform.rotation);
+        //    clone.GetComponent<Barricade>().script = this;
+        //    MostlyDamaged = true;
+        //}
+        //if ((BarricadeDestroyed == false) && (barricadeHP == 5))
+        //{
+        //    GameObject clone = Instantiate(DestroyedBarricade, transform.position, transform.rotation);
+        //    clone.GetComponent<Barricade>().script = this;
+        //    BarricadeDestroyed = true;
+        //}
         //nathan
     }
 
