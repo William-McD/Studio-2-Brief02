@@ -8516,9 +8516,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a6c02f8a84fea4ba33b3f2aeab0f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyNormal: {fileID: 8260484010210856022, guid: 179930359eeb1ef42861586593567d6a, type: 3}
-  enemyQuick: {fileID: 8260484010210856022, guid: d38410a3adc0d814382cf84c94cf9e3d, type: 3}
-  enemyTank: {fileID: 8260484010210856022, guid: 9bc6979560e29484281e9e80eabe5719, type: 3}
+  enemyNormal01: {fileID: 8260484010210856022, guid: 179930359eeb1ef42861586593567d6a, type: 3}
+  enemyNormal02: {fileID: 8260484010210856022, guid: 770c5a1304c4b254d96c2e449ff09d53, type: 3}
+  enemyQuick01: {fileID: 8260484010210856022, guid: d38410a3adc0d814382cf84c94cf9e3d, type: 3}
+  enemyQuick02: {fileID: 8260484010210856022, guid: cb2e9998536ec8442bb34126398b217b, type: 3}
+  enemyTank01: {fileID: 8260484010210856022, guid: 9bc6979560e29484281e9e80eabe5719, type: 3}
+  enemyTank02: {fileID: 8260484010210856022, guid: ececd8447cb5e944faf6a7261d78322b, type: 3}
+  normalEnemies: []
+  quickEnemies: []
+  tankEnemies: []
   spawnRadius: 20
   countdownTimer: 0
   countdownTimerStart: 3

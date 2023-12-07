@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyNormal;
-    public GameObject enemyQuick;
-    public GameObject enemyTank;
+    public GameObject[] normalEnemies;
+    public GameObject[] quickEnemies;
+    public GameObject[] tankEnemies;
+
     public float spawnRadius;
 
 
@@ -27,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
         isDay = manager.GetComponent<GameEventTracker>().isDay;
         countdownTimerStart = 60f;
         countdownTimer = countdownTimerStart;
+
     }
 
     // Start is called before the first frame update
@@ -80,7 +82,10 @@ public class EnemySpawner : MonoBehaviour
             countdownTimer = countdownTimerStart;
         }
     }
-
+    //--------------------------------------------------------------
+    //Created array to spown enemy prefab types
+    // 0 = Ordinary Enemy art | 1 = Gross/Green Enemy art
+    //--------------------------------------------------------------
     void SpawnList01()
     {
         SpawnTimer();
@@ -90,63 +95,63 @@ public class EnemySpawner : MonoBehaviour
         
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
 
         }
         if (countdownCheck == 50f && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
 
         }
         if (countdownCheck == 38 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
 
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 15 && spawnCounter == 8)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 10 && spawnCounter == 9)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
     }
@@ -159,45 +164,45 @@ public class EnemySpawner : MonoBehaviour
 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 51 && spawnCounter == 1) 
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 10 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
     }
@@ -209,69 +214,69 @@ public class EnemySpawner : MonoBehaviour
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 50 && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 18 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
 
         }
@@ -284,74 +289,74 @@ public class EnemySpawner : MonoBehaviour
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 50 && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 18 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
     }
@@ -363,68 +368,68 @@ public class EnemySpawner : MonoBehaviour
         //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 50 && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 18 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
     }
@@ -432,73 +437,73 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnTimer();
         int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
-        spawnCounterLimit = 7; // spawn limit is 10 times for Day01
+        spawnCounterLimit = 8; // spawn limit is 10 times for Day01
                                 //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 50 && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 18 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
     }
@@ -506,74 +511,74 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnTimer();
         int countdownCheck = (int)countdownTimer; //needs to convert timer float into an int to allow the programm a chance to read it
-        spawnCounterLimit = 7; // spawn limit is 10 times for Day01
+        spawnCounterLimit = 8; // spawn limit is 10 times for Day01
                                //the reason why the if function needs the spawnCounter is to stop the spawning of enemies even if the countdownCheck remains accurate 
 
         if (countdownCheck == 55 && spawnCounter == 0)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 50 && spawnCounter == 1)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 30 && spawnCounter == 5)
         {
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 20 && spawnCounter == 6)
         {
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyQuick);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
         if (countdownCheck == 18 && spawnCounter == 7)
         {
-            SpawnEnemyOnEdge(enemyQuick);
-            SpawnEnemyOnEdge(enemyNormal);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
-            SpawnEnemyOnEdge(enemyTank);
+            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[0]);
             spawnCounter++;
         }
     }
