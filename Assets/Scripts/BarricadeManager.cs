@@ -16,32 +16,18 @@ public class BarricadeManager : MonoBehaviour
     //public List <GameObject> droneList = new List <GameObject>();
     public int droneCount;
 
-    //Nathan
-//    public GameObject PoweredBarricade;
-//    public GameObject NonPoweredBarricade;
-//    public GameObject DamagedBarricade;
-//    public GameObject NearlyDestroyedBaricade;
-//    public GameObject DestroyedBarricade;
-//    public bool ShieldedBarricade;
-//    public bool SlightlyDamaged;
-//    public bool HalfDamaged;
-//    public bool MostlyDamaged;
-//    public bool BarricadeDestroyed;
-//    public int barricadeHP;
-    //Nathan
+    public GameObject barricadeFullHealth;
+    public GameObject barricadeThreeQuartersHealth;
+    public GameObject barricadeHalfHealth;
+    public GameObject barricadeOneQuarterHealth;
+    public GameObject barricadeNoHealth;
 
     private void Awake()
     {
-        //sbarricades = GameObject.FindGameObjectsWithTag("Barricade");
         drone01.SetActive(false);
         drone02.SetActive(false);
         drone03.SetActive(false);
 
-        //Nathan
-        //GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
-        //clone.GetComponent<Barricade>().script = this;
-        //barricadeHP = 1;
-        //Nathan
     }
 
 
@@ -49,33 +35,18 @@ public class BarricadeManager : MonoBehaviour
     void Update()
     {
         barricadeText.text = (barricadeHealth + "%");
-        //if (barricadeHealth <= 0)
-        //{
-        //    DestroyBarricade();
-        //}
-        //else
-        //{
-        //    foreach (GameObject b in barricades)
-        //    {
-        //        b.SetActive(true);
-        //    }    
-        //}
-        int barricadeID = (100-barricadeHealth) / 20;
-        if (barricadeID > 4)
-            barricadeID = 4;
-        for(int i=0;i<5;++i)
+        BarricadeHealthMesh();
+        if (barricadeHealth <= 0)
         {
-            if(i==barricadeID)
+            DestroyBarricade();
+        }
+        else
+        {
+            foreach (GameObject b in barricades)
             {
-                barricades[i].SetActive(true);
-
-            }
-            else
-            {
-                barricades[i].SetActive(false);
+                b.SetActive(true);
             }    
         }
-        //BarricadeAppearance();
     }
     void DestroyBarricade()
     {
@@ -112,34 +83,49 @@ public class BarricadeManager : MonoBehaviour
         
     }
 
-    public void BarricadeAppearance()
+    public void BarricadeHealthMesh()
     {
-        //Nathan
-        //if ((ShieldedBarricade == false) && (barricadeHP == 2))
-        //{
-        //    GameObject clone = Instantiate(PoweredBarricade, transform.position, transform.rotation);
-        //    clone.GetComponent<Barricade>().script = this;
-        //    ShieldedBarricade = true;
-        //}
-        //if ((HalfDamaged == false) && (barricadeHP == 3))
-        //{
-        //    GameObject clone = Instantiate(DamagedBarricade, transform.position, transform.rotation);
-        //    clone.GetComponent<Barricade>().script = this;
-        //    HalfDamaged = true;
-        //}
-        //if ((MostlyDamaged == false) && (barricadeHP == 4))
-        //{
-        //    GameObject clone = Instantiate(NearlyDestroyedBaricade, transform.position, transform.rotation);
-        //    clone.GetComponent<Barricade>().script = this;
-        //    MostlyDamaged = true;
-        //}
-        //if ((BarricadeDestroyed == false) && (barricadeHP == 5))
-        //{
-        //    GameObject clone = Instantiate(DestroyedBarricade, transform.position, transform.rotation);
-        //    clone.GetComponent<Barricade>().script = this;
-        //    BarricadeDestroyed = true;
-        //}
-        //nathan
+        if (barricadeHealth <= 100 && barricadeHealth >= 76)
+        {
+            barricadeFullHealth.SetActive(true);
+            barricadeThreeQuartersHealth.SetActive(false);
+            barricadeHalfHealth.SetActive(false);
+            barricadeOneQuarterHealth.SetActive(false);
+            barricadeNoHealth.SetActive(false);
+        }
+        if (barricadeHealth <= 75 && barricadeHealth >= 51)
+        {
+            barricadeFullHealth.SetActive(false);
+            barricadeThreeQuartersHealth.SetActive(true);
+            barricadeHalfHealth.SetActive(false);
+            barricadeOneQuarterHealth.SetActive(false);
+            barricadeNoHealth.SetActive(false);
+        }
+        if (barricadeHealth <= 50 && barricadeHealth >= 26)
+        {
+            barricadeFullHealth.SetActive(false);
+            barricadeThreeQuartersHealth.SetActive(false);
+            barricadeHalfHealth.SetActive(true);
+            barricadeOneQuarterHealth.SetActive(false);
+            barricadeNoHealth.SetActive(false);
+        }
+        if (barricadeHealth <= 25 && barricadeHealth >= 1)
+        {
+            barricadeFullHealth.SetActive(false);
+            barricadeThreeQuartersHealth.SetActive(false);
+            barricadeHalfHealth.SetActive(false);
+            barricadeOneQuarterHealth.SetActive(true);
+            barricadeNoHealth.SetActive(false);
+        }
+        if (barricadeHealth <= 0)
+        {
+            barricadeFullHealth.SetActive(false);
+            barricadeThreeQuartersHealth.SetActive(false);
+            barricadeHalfHealth.SetActive(false);
+            barricadeOneQuarterHealth.SetActive(false);
+            barricadeNoHealth.SetActive(true);
+        }
     }
+
 
 }
