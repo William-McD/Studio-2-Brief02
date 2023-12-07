@@ -85,7 +85,7 @@ public class DayTimeManager : MonoBehaviour
 
 
         // FIRST PLAYABLE ONLY---------------- //Chris
-        if (day == 5)
+        if (day == 7)
         {
             nextDayButton.SetActive(false);
         }
