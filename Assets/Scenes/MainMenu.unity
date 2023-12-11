@@ -1466,20 +1466,26 @@ MonoBehaviour:
   m_text: 'Controls:
 
 
-    WASD to Move
+    The WASD keys are your movement
 
-    Left Mouse Button to Shoot
+    Left Mouse click
+    shoots your energy weapon.
 
-    Press
-    SPACEBAR repeatedly to cooldown Gun when it is Overheated!
+    Space key activates the quick active cooldown
 
 
-    Shoot the Inected
+    Drones
+    can be created during the day and used to help survive the night by repairing
+    the barrier as well as shoot the parasitic zombie-like beings.
 
-    Protect
-    the Barricade
 
-    Survive 7 Nights!'
+    You have
+    a limited amount of resources each day. You have to manage your daily resources
+    carefully during the day. The resources do not carry over.
+
+
+    Your rescue
+    ship will arrive to pick you up in 8 days.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e88f7fa0765570241b6c5cc041e0fbe1, type: 2}
   m_sharedMaterial: {fileID: 2320727975167805167, guid: e88f7fa0765570241b6c5cc041e0fbe1, type: 2}
@@ -1506,8 +1512,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1592,7 +1598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 347, y: -190}
+  m_AnchoredPosition: {x: 0, y: -279}
   m_SizeDelta: {x: 260, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062119606
