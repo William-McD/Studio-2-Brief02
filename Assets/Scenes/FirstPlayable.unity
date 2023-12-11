@@ -8205,6 +8205,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3210560718374774245, guid: bde5143052d578248b8f0893dca63f73, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210560718374774245, guid: bde5143052d578248b8f0893dca63f73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210560718374774245, guid: bde5143052d578248b8f0893dca63f73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3622434493357530369, guid: bde5143052d578248b8f0893dca63f73, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4
@@ -11293,6 +11305,14 @@ PrefabInstance:
       propertyPath: gunHeatUpAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5198185964496404435, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37f6ba77452070946a9866a2177f449b, type: 2}
+    - target: {fileID: 7013577080398020913, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 37f6ba77452070946a9866a2177f449b, type: 2}
     - target: {fileID: 7395488663461059789, guid: 573aeb17cc09f924c895c954d49bfa57, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
