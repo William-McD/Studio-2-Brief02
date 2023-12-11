@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 moveDirection = Vector2.zero;
     private InputAction move; // sets up InputAction for moving with move
+    private InputAction look; // sets up InputAction for looking with look
     private InputAction fire; // sets up InputACtion for firing with fire
     private InputAction cooldown; // sets up InputAction for coolingdown with cooldown
 
@@ -63,6 +64,9 @@ public class PlayerController : MonoBehaviour
         move = playerControls.Player.Move; // assign move to playerControls Input Move (WASD)
         move.Enable(); // enables move actions
 
+        look = playerControls.Player.Look;
+        look.Enable();
+
         fire = playerControls.Player.Fire; // assigns fire to playerControls Input Fire (Left Mouseclick)
         fire.Enable(); // enables fire action
         fire.performed += Fire; //the Fire action equals the Fire Function
@@ -75,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         //when not using Fire or Move, disable them
         move.Disable();
+        look.Disable();
         fire.Disable();
         cooldown.Disable();
     }
