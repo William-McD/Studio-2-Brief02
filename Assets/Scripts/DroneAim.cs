@@ -59,7 +59,6 @@ public class DroneAim : MonoBehaviour
             //connors stuff
         }
     }
-
     void FindClosestEnemy()
     {
         if (enemy == null)

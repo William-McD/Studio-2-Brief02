@@ -40,6 +40,7 @@ public class DayTimeManager : MonoBehaviour
     // Start is called before the first frame update
     public void SetUpDaytimeValues()
     {
+
         if (barricadeManager.GetComponent<BarricadeManager>().barricadeHealth < 0)
         {
             startingBarricadeHealth = 0;
@@ -164,7 +165,6 @@ public class DayTimeManager : MonoBehaviour
 
         barricadeManager.GetComponent<BarricadeManager>().barricadeHealth = dayBarricadeRepair;
         barricadeManager.GetComponent<BarricadeManager>().droneCount = dayDroneAmount;
-        barricadeManager.GetComponent<BarricadeManager>().DroneManager();
 
         enemySpawner.SetActive(true);
         enemySpawner.GetComponent<EnemySpawner>().spawnCounter = 0;

@@ -22,11 +22,10 @@ public class BarricadeManager : MonoBehaviour
     public GameObject barricadeOneQuarterHealth;
     public GameObject barricadeNoHealth;
 
+    private DroneAmount droneAmount = DroneAmount.zeroDrones;
+
     private void Awake()
     {
-        drone01.SetActive(false);
-        drone02.SetActive(false);
-        drone03.SetActive(false);
 
     }
 
@@ -47,6 +46,83 @@ public class BarricadeManager : MonoBehaviour
                 b.SetActive(true);
             }    
         }
+
+        switch (droneAmount)
+        {
+            case DroneAmount.zeroDrones:
+                ZeroDrones();
+
+                if (droneCount == 1)
+                {
+                    droneAmount = DroneAmount.oneDrone;
+                }
+                else if (droneCount == 2)
+                {
+                    droneAmount = DroneAmount.twoDrones;
+                }
+                else if (droneCount == 3)
+                {
+                    droneAmount = DroneAmount.threeDrones;
+                }
+                break;
+            case DroneAmount.oneDrone:
+                OneDrone();
+
+                if (droneCount == 0)
+                {
+                    droneAmount = DroneAmount.zeroDrones;
+                }
+                else if (droneCount == 2)
+                {
+                    droneAmount = DroneAmount.twoDrones;
+                }
+                else if (droneCount == 3)
+                {
+                    droneAmount = DroneAmount.threeDrones;
+                }
+                break;
+            case DroneAmount.twoDrones:
+                TwoDrones();
+
+                if (droneCount == 0)
+                {
+                    droneAmount = DroneAmount.zeroDrones;
+                }
+                else if (droneCount == 1)
+                {
+                    droneAmount = DroneAmount.oneDrone;
+                }
+                else if (droneCount == 3)
+                {
+                    droneAmount = DroneAmount.threeDrones;
+                }
+                break;
+            case DroneAmount.threeDrones:
+                ThreeDrones();
+
+                if (droneCount == 0)
+                {
+                    droneAmount = DroneAmount.zeroDrones;
+                }
+                else if (droneCount == 1)
+                {
+                    droneAmount = DroneAmount.oneDrone;
+                }
+                else if (droneCount == 2)
+                {
+                    droneAmount = DroneAmount.twoDrones;
+                }
+                break;
+        }
+
+    }
+
+    public enum DroneAmount
+    {
+        zeroDrones,
+        oneDrone,
+        twoDrones,
+        threeDrones
     }
     void DestroyBarricade()
     {
@@ -55,7 +131,7 @@ public class BarricadeManager : MonoBehaviour
             b.SetActive(false);
         }
     }
-
+    /*
     public void DroneManager()
     {
         if (droneCount == 1 && (drone01.activeInHierarchy || drone02.activeInHierarchy || drone03.activeInHierarchy))
@@ -82,6 +158,7 @@ public class BarricadeManager : MonoBehaviour
         }
         
     }
+    */
 
     public void BarricadeHealthMesh()
     {
@@ -126,6 +203,38 @@ public class BarricadeManager : MonoBehaviour
             barricadeNoHealth.SetActive(true);
         }
     }
-
-
+    void ZeroDrones()
+    {
+        drone01.SetActive(false);
+        drone02.SetActive(false);
+        drone03.SetActive(false);
+    }
+    void OneDrone()
+    {
+        if (drone01.activeInHierarchy || drone02.activeInHierarchy || drone03.activeInHierarchy)
+        {
+            return;
+        }
+        else
+        {
+            drone01.SetActive(true);
+        }
+    }
+    void TwoDrones()
+    {
+        if (drone01.activeInHierarchy && drone03.activeInHierarchy)
+        {
+            return;
+        }
+        else
+        {
+            drone02.SetActive(true);
+        }
+    }
+    void ThreeDrones()
+    {
+        drone01.SetActive(true);
+        drone02.SetActive(true);
+        drone03.SetActive(true);
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Diagnostics.CodeAnalysis;
+using System;
 
 public class GameEventTracker : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class GameEventTracker : MonoBehaviour
         }
     }
 
-    void CheckOnOverheat()
+    public void CheckOnOverheat()
     {
         overheated = player.GetComponent<PlayerController>().overheated;
 

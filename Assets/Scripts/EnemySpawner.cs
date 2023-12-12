@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -37,6 +38,11 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+
+
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

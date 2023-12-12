@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    //Healt Variables
+    //Health Variables
     public bool alive;
 
     //Shooting Variables
