@@ -1468,24 +1468,22 @@ MonoBehaviour:
 
     The WASD keys are your movement
 
-    Left Mouse click
-    shoots your energy weapon.
+    Left Mouse Button
+    fires your energy weapon.
 
     Space key activates the quick active cooldown
 
 
+    You
+    have a limited amount of resources each Day to manage Improvements and make Repairs.
+
+
     Drones
-    can be created during the day and used to help survive the night by repairing
-    the barrier as well as shoot the parasitic zombie-like beings.
+    can be created during the day and used to help improve repair and shoot the Infected
 
 
-    You have
-    a limited amount of resources each day. You have to manage your daily resources
-    carefully during the day. The resources do not carry over.
-
-
-    Your rescue
-    ship will arrive to pick you up in 8 days.'
+    Your
+    rescue ship will arrive after 7 Nights.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e88f7fa0765570241b6c5cc041e0fbe1, type: 2}
   m_sharedMaterial: {fileID: 2320727975167805167, guid: e88f7fa0765570241b6c5cc041e0fbe1, type: 2}
@@ -1598,7 +1596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -279}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 260, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062119606
