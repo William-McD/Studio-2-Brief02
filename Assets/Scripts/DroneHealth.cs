@@ -26,17 +26,18 @@ public class DroneHealth : MonoBehaviour
         healthSlider.value = health;
         //Chris
 
-        if (health > 0)
+        if (gameObject == true) 
         {
             droneUI.SetActive(true);
         }
-        else if (health <= 0) // Chris
+        if (health <= 0) // Chris
         {
             GameObject barricadeManager = GameObject.FindGameObjectWithTag("BarricadeManager");
             barricadeManager.GetComponent<BarricadeManager>().droneCount -= 1;
+            GetComponent<DroneAim>().enemyList.Clear();
             droneUI.SetActive(false);
             gameObject.SetActive(false);
-            health = 3;
+            health = startingHealth;
         }
     }
 }

@@ -64,7 +64,7 @@ public class DayTimeManager : MonoBehaviour
         }
         dayDroneAmount = startingDroneAmount;
 
-
+        trueValue = 0;
         energyPoints = 9;
 
     }
@@ -94,13 +94,13 @@ public class DayTimeManager : MonoBehaviour
     }
     public void BarricadeRepairPlus()
     {
-        if (dayBarricadeRepair < (100 - (repairAmount + 1)) && energyPoints > 0)
+        if (dayBarricadeRepair < (100 - (repairAmount)) && energyPoints > 0)
         {
             dayBarricadeRepair += repairAmount;
             energyPoints--;
         }
         //Basically stops overspill of repair
-        else if (dayBarricadeRepair >= (100 - (repairAmount+1)) && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
+        else if (dayBarricadeRepair >= (100 - (repairAmount)) && dayBarricadeRepair < 100 && energyPoints > 0 && trueValue == 0 )
         {
             trueValue = dayBarricadeRepair += repairAmount;
             dayBarricadeRepair = 100;

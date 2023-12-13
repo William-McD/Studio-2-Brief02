@@ -153,7 +153,6 @@ public class PlayerController : MonoBehaviour
             //connors stuff
             isShooting = true;
             //connors stuff
-            Debug.Log("Fire!");
             Instantiate(bullet, child.transform.position, child.transform.rotation);
             gunCooldown += gunHeatUpAmount;
         }

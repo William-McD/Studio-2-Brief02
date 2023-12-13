@@ -58,10 +58,11 @@ public class DroneAim : MonoBehaviour
             }
             //connors stuff
         }
+
     }
     void FindClosestEnemy()
     {
-        if (enemy == null)
+        if (enemy == null )
         {
             nearestDistance = 1000f;
         }
@@ -86,7 +87,7 @@ public class DroneAim : MonoBehaviour
             //connors stuff
             Instantiate(bullet, shootOrigin.transform.position, shootOrigin.transform.rotation);
             shootTimer = shootTimerStart;
-            nearestDistance = 1000f;
+           // nearestDistance = 1000f;
         }
     }
 }

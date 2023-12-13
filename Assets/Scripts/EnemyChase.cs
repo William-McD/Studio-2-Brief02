@@ -74,7 +74,6 @@ public class EnemyChase : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             speed = obstacleSpeed;
-            Debug.Log("IS SLOWED BY OBSTACLE");
         }
         //Nathan
     }

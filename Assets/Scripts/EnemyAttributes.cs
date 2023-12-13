@@ -108,6 +108,7 @@ public class EnemyAttributes : MonoBehaviour
         int randomNum = Random.Range(0, 100);
         if (randomNum <= 20)
         {
+            Debug.Log("Attacked Drone!");
             if (currentBarricade.name == "Barricade01" || currentBarricade.name == "Barricade02")
             {
                GameObject drone = barricadeManager.GetComponent<BarricadeManager>().drone01;
@@ -123,10 +124,7 @@ public class EnemyAttributes : MonoBehaviour
                 GameObject drone = barricadeManager.GetComponent<BarricadeManager>().drone02;
                 drone.GetComponent<DroneHealth>().health -= 1;
             }
-            else
-            {
-                Debug.Log("There isn't any drones");                
-            }
+
         }
     }
 }

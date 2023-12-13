@@ -390,7 +390,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (countdownCheck == 45 && spawnCounter == 2)
         {
-            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
@@ -398,7 +398,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (countdownCheck == 40 && spawnCounter == 3)
         {
-            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
@@ -406,7 +406,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (countdownCheck == 35 && spawnCounter == 4)
         {
-            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             SpawnEnemyOnEdge(quickEnemies[0]);
@@ -416,9 +416,9 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemyOnEdge(normalEnemies[0]);
             SpawnEnemyOnEdge(normalEnemies[0]);
-            SpawnEnemyOnEdge(normalEnemies[0]);
+            SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
-            SpawnEnemyOnEdge(quickEnemies[0]);
+            SpawnEnemyOnEdge(quickEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
             spawnCounter++;
         }
@@ -430,12 +430,12 @@ public class EnemySpawner : MonoBehaviour
         if (countdownCheck == 18 && spawnCounter == 7)
         {
             SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[1]);
             SpawnEnemyOnEdge(tankEnemies[0]);
             SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[1]);
             SpawnEnemyOnEdge(tankEnemies[0]);
-            SpawnEnemyOnEdge(tankEnemies[0]);
-            SpawnEnemyOnEdge(tankEnemies[0]);
-            SpawnEnemyOnEdge(tankEnemies[0]);
+            SpawnEnemyOnEdge(tankEnemies[1]);
             spawnCounter++;
         }
     }
@@ -457,8 +457,8 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(normalEnemies[1]);
             SpawnEnemyOnEdge(quickEnemies[0]);
-            SpawnEnemyOnEdge(quickEnemies[2]);
-            SpawnEnemyOnEdge(quickEnemies[2]);
+            SpawnEnemyOnEdge(quickEnemies[1]);
+            SpawnEnemyOnEdge(quickEnemies[1]);
             spawnCounter++;
         }
         if (countdownCheck == 45 && spawnCounter == 2)
