@@ -106,7 +106,7 @@ public class EnemyAttributes : MonoBehaviour
     {
         GameObject currentBarricade = GetComponent<EnemyChase>().barricade;
         int randomNum = Random.Range(0, 100);
-        if (randomNum <= 20)
+        if (randomNum <= 25)
         {
             Debug.Log("Attacked Drone!");
             if (currentBarricade.name == "Barricade01" || currentBarricade.name == "Barricade02")

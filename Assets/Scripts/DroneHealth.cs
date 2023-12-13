@@ -18,7 +18,10 @@ public class DroneHealth : MonoBehaviour
     {
         health = startingHealth;
     }
-
+    public void OnEnable()
+    {
+        health = startingHealth;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,14 +33,15 @@ public class DroneHealth : MonoBehaviour
         {
             droneUI.SetActive(true);
         }
-        if (health <= 0) // Chris
+        if (gameObject == true && health <= 0) // Chris
         {
             GameObject barricadeManager = GameObject.FindGameObjectWithTag("BarricadeManager");
+
             barricadeManager.GetComponent<BarricadeManager>().droneCount -= 1;
-            GetComponent<DroneAim>().enemyList.Clear();
             droneUI.SetActive(false);
+            GetComponent<DroneAim>().enemyList.Clear();
             gameObject.SetActive(false);
-            health = startingHealth;
         }
     }
+
 }
